@@ -1,18 +1,52 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h2 class="title">今週のおすすめ</h2>
+    <div class="recommend">
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <videoInLists />
+      <div class="etc">...</div>
+    </div>
   </div>
 </template>
 
+<style scoped>
+.title {
+  margin: 2rem;
+}
+.recommend {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  column-gap: 0.5rem;
+  row-gap: 1rem;
+}
+.etc {
+  text-align: center;
+  line-height: 10rem;
+  font-size: 5rem;
+}
+</style>
+
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue"
+import videoInLists from "@/components/videoInLists.vue"
 
 export default {
-  name: "Home",
   components: {
-    HelloWorld,
-  },
+    videoInLists
+  }
 }
 </script>

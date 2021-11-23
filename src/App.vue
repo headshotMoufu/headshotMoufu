@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <router-view />
   </div>
 </template>
 
@@ -8,6 +9,7 @@
 * {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 </style>
 
