@@ -10,6 +10,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  font-size: 62.5%;
 }
 </style>
 
