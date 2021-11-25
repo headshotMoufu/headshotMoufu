@@ -2,11 +2,19 @@
   <div class="header">
     <h1 class="title">ヘッダー</h1>
     <div class="serch">
-      <input type="text" class="serch-text">
+      <input type="text" class="serch-text" />
       <div class="serch-mark">🔍</div>
     </div>
-    <router-link to="/upload"><div class="toUpload"><span>+</span></div></router-link>
-    <img @click="passClick" src="../assets/menu.png" alt="メニューマーク" class="menu-mark" id="menu-mark">
+    <router-link to="/upload"
+      ><div class="toUpload"><span>+</span></div></router-link
+    >
+    <img
+      @click="passClick"
+      src="../assets/menu.png"
+      alt="メニューマーク"
+      class="menu-mark"
+      id="menu-mark"
+    />
   </div>
 </template>
 
@@ -32,7 +40,6 @@
 .serch-mark {
   margin: 3rem;
   font-size: 3rem;
-
 }
 .serch-mark:hover {
   font-size: 3.5rem;
@@ -45,7 +52,7 @@
   margin: 2.5rem;
   border-radius: 50%;
   position: relative;
-  border: 0.3rem solid ;
+  border: 0.3rem solid;
 }
 .toUpload:hover {
   height: 6rem;
@@ -54,12 +61,12 @@
   position: relative;
   border: 0.4rem solid;
 }
-.toUpload span{
+.toUpload span {
   font-size: 4rem;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 .menu-mark {
   width: 3rem;
@@ -87,7 +94,7 @@ export default {
   methods: {
     passClick() {
       EventBus.$emit("passOpenMenu")
-    }
-  }
+    },
+  },
 }
 </script>
