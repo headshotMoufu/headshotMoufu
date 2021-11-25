@@ -15,7 +15,7 @@ const routes = [
     path: "/upload",
     name: "Upload",
     component: Upload,
-  }
+  },
 ]
 
 const router = new VueRouter({

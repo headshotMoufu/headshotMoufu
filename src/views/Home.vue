@@ -46,7 +46,7 @@
 .recommend {
   margin: 1rem;
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
   column-gap: 0.5rem;
   row-gap: 1rem;
 }
@@ -63,16 +63,15 @@
   transform: translateX(100%);
   top: 10rem;
   right: 0;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .open {
   transform: translateX(0);
 }
-.menu-list li{
+.menu-list li {
   font-size: 5rem;
   border-bottom: 0.2rem solid black;
 }
-
 </style>
 
 <script>
@@ -81,17 +80,17 @@ import EventBus from "@/EventBus"
 
 export default {
   components: {
-    videoInLists
+    videoInLists,
   },
   created() {
-    EventBus.$on("passOpenMenu",this.openMenu)
+    EventBus.$on("passOpenMenu", this.openMenu)
   },
   methods: {
     openMenu() {
       const menu = document.getElementById("menu")
       menu.classList.toggle("open")
       console.log("a")
-    }
-  }
+    },
+  },
 }
 </script>
