@@ -1,7 +1,7 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import Home from "../views/Home.vue"
-import About from "../views/About.vue"
+import Upload from "../views/Upload.vue"
 import MyPage from "../views/MyPage.vue"
 Vue.use(VueRouter)
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
-    component: About,
+    path: "/upload",
+    name: "Upload",
+    component: Upload,
   },
   {
     path: "/my-page",
@@ -26,6 +26,7 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+
   routes,
 })
 
