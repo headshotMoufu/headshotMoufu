@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
-    <router-link to="/video">Search Video</router-link>
+    <div class="main">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -13,6 +14,17 @@
   list-style: none;
   font-size: 62.5%;
 }
+.main {
+  position: absolute;
+  top: 10rem;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+.router-link {
+  text-decoration: none;
+  color: black;
+}
 </style>
 
 <script>
@@ -22,5 +34,6 @@ export default {
   components: {
     Header,
   },
+  computed: {},
 }
 </script>
