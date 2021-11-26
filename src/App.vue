@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <div @click="closeMenu" class="main">
+    <div class="main">
       <router-view />
     </div>
   </div>
@@ -34,8 +34,6 @@ export default {
   components: {
     Header,
   },
-  computed: {
-    
-  }
+  computed: {},
 }
 </script>

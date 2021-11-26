@@ -1,6 +1,8 @@
 <template>
   <div class="header" id="header">
-    <router-link to="/" class="router-link"><h1 class="title">ヘッダー</h1></router-link>
+    <router-link to="/" class="router-link"
+      ><h1 class="title">ヘッダー</h1></router-link
+    >
     <div class="serch">
       <input type="text" class="serch-text" />
       <div class="serch-mark">🔍</div>
