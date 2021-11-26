@@ -2,6 +2,7 @@
   <div id="app">
     <Header />
     <router-view />
+    <router-link to="/video">Search Video</router-link>
   </div>
 </template>
 
