@@ -1,14 +1,18 @@
 <template>
   <div class="header">
-    <h1 class="title">ヘッダー</h1>
+    <h1 class="title">home</h1>
     <div class="serch">
       <input type="text" class="serch-text" />
       <div class="serch-mark">🔍</div>
     </div>
-    <router-link to="/my-page">Mypageへ</router-link>
+    <router-link to="/home">
+      <div class="home-mark">🏡</div>
+    </router-link>
     <router-link to="/upload">
-      <div class="toUpload"><span>+</span></div></router-link
-    >
+      <div class="toUpload">
+        <span>+</span>
+      </div>
+    </router-link>
     <img
       @click="passClick"
       src="../assets/menu.png"
@@ -39,6 +43,10 @@
   width: 100%;
 }
 .serch-mark {
+  margin: 3rem;
+  font-size: 3rem;
+}
+.home-mark {
   margin: 3rem;
   font-size: 3rem;
 }

@@ -3,7 +3,13 @@
     <h1 class="title">投稿画面</h1>
     <div class="form">
       <div class="small-title">動画URL</div>
-      <input class="input-url" id="inputUrl" name="inputUrl" required />
+      <input
+        class="input-url"
+        id="inputUrl"
+        name="inputUrl"
+        placeholder="urlを入力"
+        required
+      />
       <div class="small-title">コメント</div>
       <textarea
         name="inputComment"
