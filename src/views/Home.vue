@@ -19,15 +19,32 @@
         <videoInLists />
         <videoInLists />
         <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
+        <videoInLists />
         <div class="etc">...</div>
       </div>
-    </div>
-    <div class="menu" id="menu">
-      <ul class="menu-list">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
     </div>
   </div>
 </template>
@@ -55,42 +72,13 @@
   line-height: 10rem;
   font-size: 5rem;
 }
-.menu {
-  position: fixed;
-  width: 30%;
-  height: 100%;
-  background-color: blue;
-  transform: translateX(100%);
-  top: 10rem;
-  right: 0;
-  transition: all 0.5s;
-}
-.open {
-  transform: translateX(0);
-}
-.menu-list li {
-  font-size: 5rem;
-  border-bottom: 0.2rem solid black;
-}
 </style>
 
 <script>
 import videoInLists from "@/components/videoInLists.vue"
-import EventBus from "@/EventBus"
-
 export default {
   components: {
     videoInLists,
-  },
-  created() {
-    EventBus.$on("passOpenMenu", this.openMenu)
-  },
-  methods: {
-    openMenu() {
-      const menu = document.getElementById("menu")
-      menu.classList.toggle("open")
-      console.log("a")
-    },
   },
 }
 </script>

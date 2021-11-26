@@ -1,20 +1,30 @@
 <template>
-  <div class="header">
-    <h1 class="title">ヘッダー</h1>
+  <div class="header" id="header">
+    <router-link to="/" class="router-link"
+      ><h1 class="title">ヘッダー</h1></router-link
+    >
     <div class="serch">
       <input type="text" class="serch-text" />
       <div class="serch-mark">🔍</div>
     </div>
-    <router-link to="/upload"
+    <router-link to="/upload" class="router-link"
       ><div class="toUpload"><span>+</span></div></router-link
     >
     <img
-      @click="passClick"
+      @click="openMenu"
       src="../assets/menu.png"
       alt="メニューマーク"
       class="menu-mark"
       id="menu-mark"
     />
+    <div class="menu" id="menu">
+      <ul class="menu-list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+    <div class="curten" v-if="curtenSwitch"></div>
   </div>
 </template>
 
@@ -25,9 +35,25 @@
   display: flex;
   justify-content: space-between;
 }
+.open-header {
+  background-color: red;
+  height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
 .title {
   font-size: 5rem;
   line-height: 10rem;
+  margin-right: 1rem;
+}
+.title:hover {
+  font-size: 5.2rem;
+  line-height: 10rem;
+  margin-right: 0.2rem;
 }
 .serch {
   display: flex;
@@ -80,20 +106,55 @@
 }
 .menu-list {
   width: 10%;
-  height: 000%;
   background-color: rgb(47, 0, 255);
   top: 0;
   right: 0;
+  bottom: 0;
+}
+.menu {
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  transform: translateX(100%);
+  top: 10rem;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 2;
+}
+.open-menu {
+  transform: translateX(0);
+}
+.menu-list li {
+  font-size: 5rem;
+  border-bottom: 0.2rem solid black;
+}
+.curten {
+  position: fixed;
+  top: 10rem;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
 }
 </style>
 
 <script>
-import EventBus from "@/EventBus.js"
-
 export default {
+  data() {
+    return {
+      curtenSwitch: false,
+    }
+  },
   methods: {
-    passClick() {
-      EventBus.$emit("passOpenMenu")
+    openMenu() {
+      const menu = document.getElementById("menu")
+      menu.classList.toggle("open-menu")
+      const header = document.getElementById("header")
+      header.classList.toggle("open-header")
+      this.curtenSwitch = !this.curtenSwitch
     },
   },
 }
