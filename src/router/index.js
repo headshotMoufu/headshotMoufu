@@ -3,6 +3,9 @@ import VueRouter from "vue-router"
 import Home from "../views/Home.vue"
 import Upload from "../views/Upload.vue"
 import Video from "../views/Video.vue"
+import UploadList from "../views/UploadList.vue"
+import ToYoutubeList from "../views/ToYoutubeList.vue"
+import ToNicoList from "../views/ToNicoList.vue"
 
 Vue.use(VueRouter)
 
@@ -21,6 +24,21 @@ const routes = [
     path: "/video",
     name: "video",
     component: Video,
+  },
+  {
+    path: "/uploadList",
+    name: "UploadList",
+    component: UploadList,
+  },
+  {
+    path: "/toYoutubeList",
+    name: "ToYoutubeList",
+    component: ToYoutubeList,
+  },
+  {
+    path: "/toNicoList",
+    name: "ToNicoList",
+    component: ToNicoList,
   },
 ]
 
