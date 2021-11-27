@@ -19,9 +19,21 @@
     />
     <div class="menu" id="menu">
       <ul class="menu-list">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        <li>
+          <router-link class="router-link" to="/uploadList"
+            >みんなのおすすめ</router-link
+          >
+        </li>
+        <li>
+          <router-link class="router-link" to="/toYoutubeList"
+            >YouTube動画発掘</router-link
+          >
+        </li>
+        <li>
+          <router-link class="router-link" to="/toNicoList"
+            >ニコニコ動画発掘</router-link
+          >
+        </li>
       </ul>
     </div>
     <div class="curten" v-if="curtenSwitch"></div>
@@ -104,13 +116,6 @@
   height: 3.5rem;
   margin: 3.25rem;
 }
-.menu-list {
-  width: 10%;
-  background-color: rgb(47, 0, 255);
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
 .menu {
   position: fixed;
   width: 30%;
@@ -126,8 +131,9 @@
   transform: translateX(0);
 }
 .menu-list li {
-  font-size: 5rem;
+  font-size: 4rem;
   border-bottom: 0.2rem solid black;
+  padding: ;
 }
 .curten {
   position: fixed;
