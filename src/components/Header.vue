@@ -19,9 +19,21 @@
     />
     <div class="menu" id="menu">
       <ul class="menu-list">
-        <li><router-link class="router-link" to="/uploadList">みんなのおすすめ</router-link></li>
-        <li><router-link class="router-link" to="/toYoutubeList">YouTube動画発掘</router-link></li>
-        <li><router-link class="router-link" to="/toNicoList">ニコニコ動画発掘</router-link></li>
+        <li>
+          <router-link class="router-link" to="/uploadList"
+            >みんなのおすすめ</router-link
+          >
+        </li>
+        <li>
+          <router-link class="router-link" to="/toYoutubeList"
+            >YouTube動画発掘</router-link
+          >
+        </li>
+        <li>
+          <router-link class="router-link" to="/toNicoList"
+            >ニコニコ動画発掘</router-link
+          >
+        </li>
       </ul>
     </div>
     <div class="curten" v-if="curtenSwitch"></div>

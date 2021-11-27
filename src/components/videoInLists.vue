@@ -1,6 +1,6 @@
 <template>
   <div class="video-in-lists">
-      <slot />
+    <slot />
   </div>
 </template>
 
