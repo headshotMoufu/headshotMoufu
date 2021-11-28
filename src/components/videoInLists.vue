@@ -1,11 +1,6 @@
 <template>
   <div class="video-in-lists">
-    <ul>
-      <li>サムネ</li>
-      <li>タイトル</li>
-      <li>再生数</li>
-      <li>etc..</li>
-    </ul>
+    <slot />
   </div>
 </template>
 
