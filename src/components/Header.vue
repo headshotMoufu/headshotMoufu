@@ -11,7 +11,7 @@
       ><div class="toUpload"><span>+</span></div></router-link
     >
     <img
-      @click="openMenu"
+      @click="switchMenu"
       src="../assets/menu.png"
       alt="メニューマーク"
       class="menu-mark"
@@ -19,7 +19,7 @@
     />
     <div class="menu" id="menu">
       <ul class="menu-list">
-        <li>
+         <li>
           <router-link class="router-link" to="/uploadList"
             >みんなのおすすめ</router-link
           >
@@ -36,7 +36,7 @@
         </li>
       </ul>
     </div>
-    <div class="curten" v-if="curtenSwitch"></div>
+    <div @click="switchMenu" class="curten" v-if="curtenSwitch"></div>
   </div>
 </template>
 
@@ -133,7 +133,7 @@
 .menu-list li {
   font-size: 4rem;
   border-bottom: 0.2rem solid black;
-  padding: ;
+  padding: 2rem;
 }
 .curten {
   position: fixed;
@@ -155,7 +155,7 @@ export default {
     }
   },
   methods: {
-    openMenu() {
+    switchMenu() {
       const menu = document.getElementById("menu")
       menu.classList.toggle("open-menu")
       const header = document.getElementById("header")
