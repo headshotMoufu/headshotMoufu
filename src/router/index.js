@@ -2,7 +2,11 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import Home from "../views/Home.vue"
 import Upload from "../views/Upload.vue"
-import MyPage from "../views/MyPage.vue"
+
+import UploadList from "../views/UploadList.vue"
+import ToYoutubeList from "../views/ToYoutubeList.vue"
+import ToNicoList from "../views/ToNicoList.vue"
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,9 +21,19 @@ const routes = [
     component: Upload,
   },
   {
-    path: "/my-page",
-    name: "MyPage",
-    component: MyPage,
+    path: "/uploadList",
+    name: "UploadList",
+    component: UploadList,
+  },
+  {
+    path: "/toYoutubeList",
+    name: "ToYoutubeList",
+    component: ToYoutubeList,
+  },
+  {
+    path: "/toNicoList",
+    name: "ToNicoList",
+    component: ToNicoList,
   },
 ]
 
