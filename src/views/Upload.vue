@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import firebase from "firebase/firestore"
+import { doc, setDoc } from "firebase/firestore"
 
 export default {
   data() {

@@ -86,7 +86,7 @@
 </style>
 
 <script>
-import videoInLists from "@/components/VideoInLists"
+import videoInLists from "@/components/videoInLists"
 
 export default {
   components: {

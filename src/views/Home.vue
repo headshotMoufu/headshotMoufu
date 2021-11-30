@@ -355,7 +355,7 @@
 </style>
 
 <script>
-import videoInLists from "@/components/VideoInLists.vue"
+import videoInLists from "@/components/videoInLists.vue"
 export default {
   components: {
     videoInLists,
