@@ -332,20 +332,20 @@
 <style scoped>
 .home {
   display: flex;
-  background-color: rgb(255, 255, 224);
 }
 .contents {
   width: 100%;
 }
 .title {
-  margin: 2rem;
+  font-size: 2rem;
+  margin-bottom: 5rem;
 }
 .recommend {
   margin: 1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 0.5rem;
-  row-gap: 1rem;
+  column-gap: 5rem;
+  row-gap: 3rem;
 }
 .etc {
   text-align: center;

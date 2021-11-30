@@ -1,87 +1,356 @@
 <template>
-  <div class="youtube-list">
-    <h1 class="title">ユーチューブ発掘</h1>
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
-    <videoInLists class="video-in-lists"
-      ><ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
-        <li>etc..</li>
-      </ul></videoInLists
-    >
+  <div class="to-youtube-list">
+    <div class="contents">
+      <h2 class="title">YouTube動画発掘</h2>
+      <div class="recommend">
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        <div class="etc">...</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.youtube-list {
-  background-color: rgb(255, 255, 224);
-  padding: 5rem;
+.to-youtube-list {
+  display: flex;
+}
+.contents {
+  width: 100%;
 }
 .title {
-  text-align: center;
+  font-size: 2rem;
   margin-bottom: 5rem;
-  font-size: 4rem;
 }
-.video-in-lists {
-  width: 50%;
-  height: 20rem;
-  margin: 0 auto 5rem;
+.recommend {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 5rem;
+  row-gap: 3rem;
+}
+.etc {
+  text-align: center;
+  line-height: 10rem;
+  font-size: 5rem;
 }
 </style>
 
