@@ -15,49 +15,49 @@
         name="inputComment"
         class="input-comment"
         id="inputComment"
-        cols="90"
-        rows="10"
+        cols="50"
+        rows="5"
       ></textarea>
-      <button type="submit" class="submit" id="submit">送信</button>
+      <button type="submit" class="submit" id="submit" @click="buuton">
+        送信
+      </button>
     </div>
   </div>
 </template>
 <script>
-import { doc, setDoc } from "firebase/firestore"
+// import { firebase } from "firebase/firestore"
 
-export default {
-  data() {
-    return {
-      messsages: [],
-    }
-  },
-  methods: {
-    postMessage() {
-      const data = { text: "こんにちは、メッセージの本文です。" }
-      firebase
-        .firestore()
-        .collection("messages")
-        .add(data)
-        .then(() => {
-          this.messages.push(data)
-        })
-    },
-  },
-}
+// export default {
+//   data() {
+//     return {
+//       messsages: [],
+//     }
+//   },
+//   methods: {
+//     postMessage() {
+//       const data = { text: "こんにちは、メッセージの本文です。" }
+//       firebase
+//         .firestore()
+//         .collection("messages")
+//         .add(data)
+//         .then(() => {
+//           this.messages.push(data)
+//         })
+//     },
+//   },
+// }
 </script>
 
 <style scoped>
 .upload {
   width: 100%;
   text-align: center;
-  padding: 5rem 0;
-  background-color: rgb(255, 255, 224);
 }
 .title {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .form {
-  padding-top: 7rem;
+  padding-top: 6rem;
 }
 .small-title {
   font-size: 3rem;
@@ -65,11 +65,13 @@ export default {
 }
 .input-url {
   height: 3rem;
-  width: 50rem;
-  margin-bottom: 50em;
+  width: 78rem;
+  margin-bottom: 5rem;
+  font-size: 2rem;
 }
 .input-comment {
   margin-bottom: 5rem;
+  font-size: 3rem;
 }
 .submit {
   font-size: 2rem;
@@ -77,3 +79,5 @@ export default {
   margin: 0 auto;
 }
 </style>
+
+<script></script>

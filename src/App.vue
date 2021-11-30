@@ -5,7 +5,6 @@
     <div class="main">
       <router-view />
     </div>
-    >>>>>>> origin/master
   </div>
 </template>
 
@@ -18,10 +17,13 @@
 }
 .main {
   position: absolute;
-  top: 10rem;
+  top: 6rem;
   right: 0;
   left: 0;
   z-index: -1;
+  padding: 5rem;
+  background-color: rgb(126, 126, 126);
+  color: white;
 }
 .router-link {
   text-decoration: none;
