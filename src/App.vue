@@ -2,7 +2,10 @@
   <div id="app">
     <Header />
 
-    <router-view />
+    <div class="main">
+      <router-view />
+    </div>
+    >>>>>>> origin/master
   </div>
 </template>
 
@@ -13,6 +16,17 @@
   list-style: none;
   font-size: 62.5%;
 }
+.main {
+  position: absolute;
+  top: 10rem;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+.router-link {
+  text-decoration: none;
+  color: black;
+}
 </style>
 
 <script>
@@ -22,5 +36,6 @@ export default {
   components: {
     Header,
   },
+  computed: {},
 }
 </script>

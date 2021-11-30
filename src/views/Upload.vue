@@ -22,6 +22,29 @@
     </div>
   </div>
 </template>
+<script>
+import firebase from "firebase/firestore"
+
+export default {
+  data() {
+    return {
+      messsages: [],
+    }
+  },
+  methods: {
+    postMessage() {
+      const data = { text: "こんにちは、メッセージの本文です。" }
+      firebase
+        .firestore()
+        .collection("messages")
+        .add(data)
+        .then(() => {
+          this.messages.push(data)
+        })
+    },
+  },
+}
+</script>
 
 <style scoped>
 .upload {
@@ -54,7 +77,3 @@
   margin: 0 auto;
 }
 </style>
-
-<script>
-export default {}
-</script>
