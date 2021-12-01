@@ -12,7 +12,9 @@
         cols="50"
         rows="5"
       ></textarea>
-      <button type="submit" class="submit" id="submit" @click="buuton">送信</button>
+      <button type="submit" class="submit" id="submit" @click="button">
+        送信
+      </button>
     </div>
   </div>
 </template>
@@ -50,4 +52,10 @@
 </style>
 
 <script>
+
+export default {
+  
+  methods: {
+  },
+}
 </script>
