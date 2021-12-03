@@ -18,7 +18,7 @@
         cols="50"
         rows="5"
       ></textarea>
-      <button type="submit" class="submit" id="submit" @click="postMassage">
+      <button type="submit" class="submit" id="submit" v-on:click="postMessage">
         送信
       </button>
     </div>
@@ -26,9 +26,8 @@
 </template>
 <script>
 // import { initializeApp } from "firebase/app"
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, getDocs } from "firebase/firestore"
 import { db } from "@/firebase.js"
-import { doc, getDoc } from "firebase/firestore"
 
 export default {
   data() {
@@ -42,7 +41,7 @@ export default {
         comments: "あかさたな",
         links: "hamayarawa",
       })
-      this.masseages.push(docRef)
+      this.masseage.push(docRef)
 
       // const data = { text: "こんにちは、メッセージの本文です。" }
       // firebase
@@ -55,13 +54,17 @@ export default {
     },
   },
   async created() {
-    const docRef = doc(db, "messages")
-    const docSnap = await getDoc(docRef)
-
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data())
-    }
+    const querySnapshot = await getDocs(db, "messages")
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id)
+    })
   },
+
+  //     if (docSnap.exists()) {
+  //       console.log("Document data:", docSnap.data())
+  //     }
+  //   },
+  // }
 }
 </script>
 
@@ -96,5 +99,3 @@ export default {
   margin: 0 auto;
 }
 </style>
-
-<script></script>
