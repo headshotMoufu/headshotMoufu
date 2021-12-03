@@ -52,10 +52,7 @@
 </style>
 
 <script>
-
 export default {
-  
-  methods: {
-  },
+  methods: {},
 }
 </script>
