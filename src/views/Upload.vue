@@ -28,6 +28,7 @@
 // import { initializeApp } from "firebase/app"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
+import { doc, getDoc } from "firebase/firestore"
 
 export default {
   data() {
@@ -52,6 +53,14 @@ export default {
       //     this.messages.push(data)
       //   })
     },
+  },
+  async created() {
+    const docRef = doc(db, "messages")
+    const docSnap = await getDoc(docRef)
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data())
+    }
   },
 }
 </script>
