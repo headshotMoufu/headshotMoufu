@@ -18,34 +18,42 @@
         cols="50"
         rows="5"
       ></textarea>
-      <button type="submit" class="submit" id="submit" @click="buuton">
+      <button type="submit" class="submit" id="submit" @click="postMassage">
         送信
       </button>
     </div>
   </div>
 </template>
 <script>
-// import { firebase } from "firebase/firestore"
+// import { initializeApp } from "firebase/app"
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "@/firebase.js"
 
-// export default {
-//   data() {
-//     return {
-//       messsages: [],
-//     }
-//   },
-//   methods: {
-//     postMessage() {
-//       const data = { text: "こんにちは、メッセージの本文です。" }
-//       firebase
-//         .firestore()
-//         .collection("messages")
-//         .add(data)
-//         .then(() => {
-//           this.messages.push(data)
-//         })
-//     },
-//   },
-// }
+export default {
+  data() {
+    return {
+      messages: [],
+    }
+  },
+  methods: {
+    async postMessage() {
+      const docRef = await addDoc(collection(db, "messages"), {
+        comments: "あかさたな",
+        links: "hamayarawa",
+      })
+      this.masseages.push(docRef)
+
+      // const data = { text: "こんにちは、メッセージの本文です。" }
+      // firebase
+      //   .firestore()
+      //   .collection("messages")
+      //   .add(data)
+      //   .then(() => {
+      //     this.messages.push(data)
+      //   })
+    },
+  },
+}
 </script>
 
 <style scoped>

@@ -356,10 +356,17 @@
 
 <script>
 import videoInLists from "@/components/VideoInLists"
-
+import { collection, doc, getDoc } from "firebase/firestore"
+import { db } from "@/firebase.js"
 export default {
   components: {
     videoInLists,
+  },
+  methods: {
+    async test() {
+      const docRef = doc(collection(db, "meassages"))
+      const docSnap = await getDoc(docRef)
+     if (docSnap.exists()) { }
   },
 }
 </script>
