@@ -34,9 +34,10 @@ import { db } from "@/firebase.js"
 export default {
   data() {
     return {
-      // messages: [],
+      //messages: [],
       inputComment: "",
       inputLink: "",
+      ids: 0,
     }
   },
   methods: {
@@ -45,7 +46,11 @@ export default {
         comments: this.inputComment,
         links: this.inputLink,
       })
-      this.messages.push(docRef)
+      this.ids += 1
+      this.inputComment = ""
+      this.inputLink = ""
+      console.log(docRef)
+      //this.messages.push(docRef)
 
       // const data = { text: "こんにちは、メッセージの本文です。" }
       // firebase
