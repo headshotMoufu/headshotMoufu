@@ -355,19 +355,19 @@
 </style>
 
 <script>
-// import videoInLists from "@/components/VideoInLists"
-// import { collection, doc, getDoc } from "firebase/firestore"
-// import { db } from "@/firebase.js"
-// export default {
-//   components: {
-//     videoInLists,
-//   },
-//   methods: {
-//     async test() {
-//       const docRef = doc(collection(db, "meassages"))
-//       const docSnap = await getDoc(docRef)
-//      if (docSnap.exists()) { データを取得したので、それをリロード後画面に反映させたい。methodsだと動的処理？だから不適切かも}
-//   },
-// },
-//}
+import videoInLists from "@/components/VideoInLists"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "@/firebase.js"
+export default {
+  components: {
+    videoInLists,
+  },
+
+  async created() {
+    const querySnapshot = await getDocs(collection(db, "messages"))
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id)
+    })
+  },
+}
 </script>

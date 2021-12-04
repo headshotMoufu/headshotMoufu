@@ -4,6 +4,7 @@
     <div class="form">
       <div class="small-title">動画URL</div>
       <input
+        v-model="inputLink"
         class="input-url"
         id="inputUrl"
         name="inputUrl"
@@ -12,6 +13,7 @@
       />
       <div class="small-title">コメント</div>
       <textarea
+        v-model="inputComment"
         name="inputComment"
         class="input-comment"
         id="inputComment"
@@ -26,22 +28,24 @@
 </template>
 <script>
 // import { initializeApp } from "firebase/app"
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { collection, addDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
 export default {
   data() {
     return {
-      messages: [],
+      // messages: [],
+      inputComment: "",
+      inputLink: "",
     }
   },
   methods: {
     async postMessage() {
       const docRef = await addDoc(collection(db, "messages"), {
-        comments: "あかさたな",
-        links: "hamayarawa",
+        comments: this.inputComment,
+        links: this.inputLink,
       })
-      this.masseage.push(docRef)
+      this.messages.push(docRef)
 
       // const data = { text: "こんにちは、メッセージの本文です。" }
       // firebase
@@ -53,12 +57,12 @@ export default {
       //   })
     },
   },
-  async created() {
-    const querySnapshot = await getDocs(db, "messages")
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id)
-    })
-  },
+  // async created() {
+  //   const querySnapshot = await getDocs(collection(db, "messages"))
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(doc.id)
+  //   })
+  // },
 
   //     if (docSnap.exists()) {
   //       console.log("Document data:", docSnap.data())
