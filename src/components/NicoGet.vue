@@ -11,7 +11,7 @@ import { httpsCallable, connectFunctionsEmulator } from "firebase/functions"
 export default {
   data() {
     return {
-      qua: "マインクラフト",
+      qua: "ゆっくり",
       results: [],
     }
   },
