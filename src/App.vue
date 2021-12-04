@@ -3,6 +3,7 @@
     <Header />
     <div class="main">
       <router-view />
+      <Nico />
     </div>
   </div>
 </template>
@@ -32,10 +33,12 @@
 
 <script>
 import Header from "@/components/Header.vue"
+import Nico from "@/components/NicoGet.vue"
 
 export default {
   components: {
     Header,
+    Nico,
   },
   computed: {},
 }
