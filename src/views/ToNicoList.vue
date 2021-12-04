@@ -332,6 +332,7 @@
 <style scoped>
 .to-nico-list {
   display: flex;
+  padding: 0 5rem;
 }
 .contents {
   width: 100%;

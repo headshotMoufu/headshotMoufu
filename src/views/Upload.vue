@@ -28,7 +28,7 @@
   font-size: 3rem;
 }
 .form {
-  padding-top: 6rem;
+  padding: 6rem 0 3.4 rem;
 }
 .small-title {
   font-size: 3rem;
