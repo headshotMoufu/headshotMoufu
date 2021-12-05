@@ -384,7 +384,6 @@ export default {
         outputLink: doc.data().links,
         outputId: doc.id,
       })
-      console.log(doc.id)
     })
   },
 }
