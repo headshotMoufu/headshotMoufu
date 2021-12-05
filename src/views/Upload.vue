@@ -20,24 +20,21 @@
         cols="50"
         rows="5"
       ></textarea>
-      <button type="submit" class="submit" id="submit" v-on:click="postMessage">
+      <button type="submit" class="submit" id="submit" @click="postMessage">
         送信
       </button>
     </div>
   </div>
 </template>
 <script>
-// import { initializeApp } from "firebase/app"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
 export default {
   data() {
     return {
-      //messages: [],
       inputComment: "",
       inputLink: "",
-      ids: 0,
     }
   },
   methods: {
@@ -46,34 +43,12 @@ export default {
         comments: this.inputComment,
         links: this.inputLink,
       })
-      this.ids += 1
+
       this.inputComment = ""
       this.inputLink = ""
       console.log(docRef)
-      //this.messages.push(docRef)
-
-      // const data = { text: "こんにちは、メッセージの本文です。" }
-      // firebase
-      //   .firestore()
-      //   .collection("messages")
-      //   .add(data)
-      //   .then(() => {
-      //     this.messages.push(data)
-      //   })
     },
   },
-  // async created() {
-  //   const querySnapshot = await getDocs(collection(db, "messages"))
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(doc.id)
-  //   })
-  // },
-
-  //     if (docSnap.exists()) {
-  //       console.log("Document data:", docSnap.data())
-  //     }
-  //   },
-  // }
 }
 </script>
 
