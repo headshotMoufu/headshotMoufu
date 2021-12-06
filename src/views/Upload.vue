@@ -2,27 +2,30 @@
   <div class="upload">
     <h1 class="title">投稿画面</h1>
     <div class="form">
-      <div class="small-title">動画URL</div>
-      <input
-        v-model="inputLink"
-        class="input-url"
-        id="inputUrl"
-        name="inputUrl"
-        placeholder="urlを入力"
-        required
-      />
-      <div class="small-title">コメント</div>
-      <textarea
-        v-model="inputComment"
-        name="inputComment"
-        class="input-comment"
-        id="inputComment"
-        cols="50"
-        rows="5"
-      ></textarea>
-      <button type="submit" class="submit" id="submit" @click="postMessage">
-        送信
-      </button>
+      <form v-on:submit.prevent="postMessage">
+        <div class="small-title">動画URL</div>
+        <input
+          v-model="inputLink"
+          class="input-url"
+          id="inputUrl"
+          name="inputUrl"
+          placeholder="urlを入力"
+          type="url"
+          required
+        />
+        <div class="small-title">コメント</div>
+        <textarea
+          v-model="inputComment"
+          name="inputComment"
+          class="input-comment"
+          id="inputComment"
+          cols="50"
+          rows="5"
+        ></textarea>
+        <button type="submit" class="submit" id="submit" @click="postMessage">
+          送信
+        </button>
+      </form>
     </div>
   </div>
 </template>
@@ -39,6 +42,7 @@ export default {
   },
   methods: {
     async postMessage() {
+      // if (this.inputLink != location.href)
       const docRef = await addDoc(collection(db, "messages"), {
         comments: this.inputComment,
         links: this.inputLink,
