@@ -2,6 +2,22 @@
   <div class="to-nico-list">
     <div class="contents">
       <h2 class="title">ニコニコ動画発掘</h2>
+      <div class="search">
+        <input type="text" value="初音ミク" v-model="que" />
+
+        <input type="checkbox" id="title" value="title" v-model="Targets" />
+        <label for="title">タイトル</label>
+        <input
+          type="checkbox"
+          id="description"
+          value="description"
+          v-model="Targets"
+        />
+        <label for="description">説明文</label>
+        <input type="checkbox" id="tags" value="tags" v-model="Targets" />
+        <label for="tags">タグ</label>
+        <Nico v-bind:query="que" v-bind:Targets="Targets" />
+      </div>
       <div class="recommend">
         <videoInLists
           ><ul>
@@ -47,7 +63,6 @@
         <div class="etc">...</div>
       </div>
     </div>
-    <Nico />
   </div>
 </template>
 
@@ -84,6 +99,12 @@ export default {
   components: {
     videoInLists,
     Nico,
+  },
+  data() {
+    return {
+      que: "初音ミク",
+      Targets: [],
+    }
   },
 }
 </script>
