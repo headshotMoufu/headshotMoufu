@@ -331,6 +331,7 @@
 
 <style scoped>
 .to-youtube-list {
+  padding: 0 5rem;
   display: flex;
 }
 .contents {
@@ -363,3 +364,4 @@ export default {
   },
 }
 </script>
+>>>>>>> origin/master

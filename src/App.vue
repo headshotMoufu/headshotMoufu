@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <Header />
 
     <div class="main">
@@ -15,14 +15,13 @@
   list-style: none;
   font-size: 62.5%;
 }
+.app {
+  position: relative;
+}
 .main {
-  position: absolute;
-  top: 6rem;
-  right: 0;
-  left: 0;
+  padding-top: 5rem;
   z-index: -1;
-  padding: 5rem;
-  background-color: rgb(126, 126, 126);
+  background-color: rgb(184, 184, 184);
   color: white;
 }
 .router-link {
