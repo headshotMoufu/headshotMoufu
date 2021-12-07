@@ -42,13 +42,13 @@
             >
           </h3>
         </li>
-        <li>
+        <!-- <li>
           <h3>
             <router-link class="router-link" to="/toNicoList"
               >ログイン</router-link
             >
           </h3>
-        </li>
+        </li> -->
       </ul>
     </div>
     <div @click="switchMenu" class="curten" v-if="curtenSwitch"></div>
@@ -73,6 +73,7 @@
   height: 6rem;
   display: flex;
   justify-content: space-between;
+  z-index: 6;
 }
 .open-header {
   background-color: rgb(58, 58, 58);
