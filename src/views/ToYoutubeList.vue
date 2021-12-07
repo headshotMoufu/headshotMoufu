@@ -11,50 +11,23 @@
       />
       <button v-on:click="search_video">検索</button>
     </div>
-
-    <table cellspacing="0" cellpadding="5" v-show="results">
-      <tr>
-        <th width="50">
-          <font>No</font>
-        </th>
-        <th width="200">
-          <font>Video</font>
-        </th>
-        <th width="700">
-          <font>Contents</font>
-        </th>
-      </tr>
-
-      <tr v-for="(movie, index) in results" v-bind:key="movie.id.videoId">
-        <!-- No -->
-        <td valign="top" width="50">{{ index + 1 }}</td>
-        <!-- Video -->
-        <td valign="top" width="300">
-          <a
-            v-bind:href="'https://www.youtube.com/watch?v=' + movie.id.videoId"
-          >
-            <img
-              width="300"
-              height="200"
-              v-bind:src="movie.snippet.thumbnails.medium.url"
-            />
-          </a>
-        </td>
-        <!-- titleとdescription -->
-        <td align="left" valign="top" width="700">
-          <font size="5" color="#c71585"
-            ><b>{{ movie.snippet.title }}</b></font
-          >
-          <br />
-          {{ movie.snippet.description }}
-        </td>
-      </tr>
-    </table>
-    <videoInLists class="video-in-lists">
+    <!--<button v-on:click="now">現在時刻</button>
+    <div>{{ nowtime }}</div>-->
+    <videoInLists
+      class="video-in-lists"
+      v-for="movie in results3"
+      v-bind:key="movie.video_id"
+    >
       <ul>
-        <li>タイトル</li>
-        <li>サムネ</li>
-        <li>再生数</li>
+        <li>タイトル:{{ movie.title }}</li>
+        <li>サムネ:</li>
+        <a v-bind:href="'https://www.youtube.com/watch?v=' + movie.video_id">
+          <img width="250" height="100" v-bind:src="movie.url" />
+        </a>
+
+        <!--<li>再生数: {{ movie.view_count }}</li>
+        <li>いいね数: {{ movie.like_count }}</li>
+        <li>コメント数: {{ movie.comment_count }}</li>-->
         <li>etc..</li>
       </ul>
     </videoInLists>
@@ -63,7 +36,7 @@
 
 <style scoped>
 .youtube-list {
-  background-color: rgb(255, 255, 224);
+  background-color: black;
   padding: 5rem;
 }
 .title {
@@ -91,13 +64,13 @@ table {
   border: solid 2px #c71585; /*表全体を線で囲う*/
 }
 table th {
-  color: #fff0f5; /*文字色*/
+  color: black; /*文字色*/
   background: #ff69b4; /*背景色*/
   border: dashed 1px #c71585;
 }
 
 table td {
-  background: #fff0f5;
+  background: black;
   border: dashed 1px #c71585;
 }
 </style>
@@ -112,19 +85,27 @@ export default {
   },
   data: function () {
     return {
+      nowtime: null,
+      tmp_results: [], //検索結果情報を格納する配列
       results: null,
+      tmp_results2: [], //検索結果の動画情報を格納する配列
+      results2: null,
+      tmp_results3: [], //掘り出し物の動画を格納する配列
+      results3: null, //埋もれてる動画結果
       keyword: "J-POP",
       params: {
         q: "", // 検索クエリを指定します。
         part: "snippet", //とりあえずsnippetにしとけばいいっぽい？
         type: "video", //検索クエリの対象を特定のタイプのリソースのみに制限
+        regionCode: "jp",
         /*
           channel
           playlist
           video
         */
-        maxResults: "20", // 最大検索数（0以上50以下）
+        maxResults: "1", // 最大検索数（0以上50以下）
         order: "viewCount", // リソースを再生回数の多い順に並べます。
+        //publishedBefore: null,
         /*
           date – リソースを作成日の新しい順に並べます。
           rating – リソースを評価の高い順に並べます。
@@ -137,10 +118,23 @@ export default {
         //publishedBefore:,  publishedBefore パラメータは、指定した日時より前に作成されたリソースのみが API レスポンスに含まれるように指定します。
         key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
       },
+      params2: {
+        //動画情報所得のためのパラメータ
+        part: "statistics",
+        id: null,
+        key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
+      },
     }
   },
   methods: {
     search_video: function () {
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          this.search_rule()
+        }, 10000)
+      }
+    },
+    search_rule: function () {
       this.params.q = this.keyword
       var self = this
       axios
@@ -148,8 +142,16 @@ export default {
           params: this.params,
         })
         .then(function (res) {
-          self.results = res.data.items
-          console.log(res)
+          self.tmp_results.push(res.data.items[0])
+          console.log(self.tmp_results[0])
+          self.tmp_results3.push({
+            title: self.tmp_results[0].snippet.title,
+            video_id: self.tmp_results[0].id.videoId,
+            url: self.tmp_results[0].snippet.thumbnails.medium.url,
+          })
+          console.log("test")
+          self.results3 = self.tmp_results3
+          console.log(self.results3)
         })
     },
   },
