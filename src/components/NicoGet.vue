@@ -1,7 +1,6 @@
 <template>
   <div>
     <button v-on:click="NicoGet">動画取得</button>
-    <button v-on:click="Test">Test</button>
   </div>
 </template>
 
@@ -65,9 +64,7 @@ export default {
         }
       console.log(this.results)
       console.log(this.UseData)
-    },
-    Test() {
-      console.log(this.Targets)
+      this.$parent.MovieData = this.UseData
     },
   },
 }
