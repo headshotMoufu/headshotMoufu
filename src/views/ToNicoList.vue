@@ -3,19 +3,22 @@
     <div class="contents">
       <h2 class="title">ニコニコ動画発掘</h2>
       <div class="search">
-        <input type="text" value="初音ミク" v-model="que" />
+        <div>
+          <input type="text" value="初音ミク" v-model="que" />
 
-        <input type="checkbox" id="title" value="title" v-model="Targets" />
-        <label for="title">タイトル</label>
-        <input
-          type="checkbox"
-          id="description"
-          value="description"
-          v-model="Targets"
-        />
-        <label for="description">説明文</label>
-        <input type="checkbox" id="tags" value="tags" v-model="Targets" />
-        <label for="tags">タグ</label>
+          <input type="checkbox" id="title" value="title" v-model="Targets" />
+          <label for="title">タイトル</label>
+          <input
+            type="checkbox"
+            id="description"
+            value="description"
+            v-model="Targets"
+          />
+          <label for="description">説明文</label>
+          <input type="checkbox" id="tags" value="tags" v-model="Targets" />
+          <label for="tags">タグ</label>
+        </div>
+        <div></div>
         <Nico v-bind:query="que" v-bind:Targets="Targets" />
       </div>
       <div class="recommend">
@@ -104,6 +107,7 @@ export default {
     return {
       que: "初音ミク",
       Targets: [],
+      Filters: [],
     }
   },
 }

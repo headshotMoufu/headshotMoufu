@@ -8,9 +8,9 @@ admin.initializeApp()
 exports.searchNico = functions.https.onCall(async (data, context) => {
   try {
     const URL =
-      "https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=" +
+      "https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?" +
       data +
-      "&targets=title&fields=contentId,title,viewCounter&filters[viewCounter][gte]=10000&_sort=-viewCounter&_offset=0&_context=apiguide"
+      "&fields=contentId,title,viewCounter,thumbnailUrl&filters[viewCounter][gte]=10000&_sort=-viewCounter&_offset=0&_context=apiguide"
     const result = await fetch(URL)
     /*
     const result = await fetch(
