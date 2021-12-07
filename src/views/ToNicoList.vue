@@ -29,7 +29,7 @@
               ><ul>
                 <li><img :src="movie.thumbUrl" /></li>
                 <li>{{ movie.title }}</li>
-                <li>再生数</li>
+                <li>{{ movie.contentId }}</li>
                 <li>etc..</li>
               </ul></videoInLists
             >
