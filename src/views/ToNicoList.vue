@@ -18,7 +18,15 @@
           <input type="checkbox" id="tags" value="tags" v-model="Targets" />
           <label for="tags">タグ</label>
         </div>
-        <div></div>
+        <div>
+          <select v-model="ViewCount">
+            <option disabled value="">実装まち(再生数での振り分け)</option>
+            <option>0再生~100再生</option>
+            <option>0再生~100再生</option>
+            <option>0再生~100再生</option>
+            <option>0再生~100再生</option>
+          </select>
+        </div>
         <Nico v-bind:query="que" v-bind:Targets="Targets" />
       </div>
 
@@ -56,7 +64,7 @@ export default {
       GetMovie: false,
       que: "初音ミク",
       Targets: [],
-      Filters: [],
+      ViewCount: "",
       MovieData: [],
     }
   },
