@@ -38,19 +38,25 @@ export default {
     return {
       inputComment: "",
       inputLink: "",
+      hantei: "https?://[\\w!?/+\\-_~;.,*&@#$%()'[\\]]+ ",
     }
   },
   methods: {
     async postMessage() {
-      // if (this.inputLink != location.href)
-      const docRef = await addDoc(collection(db, "messages"), {
-        comments: this.inputComment,
-        links: this.inputLink,
-      })
+      if (this.hantei != this.inputLink.exec()) {
+        window.alert("再入力してください")
+        this.inputComment = ""
+        this.inputLink = ""
+      } else {
+        const docRef = await addDoc(collection(db, "messages"), {
+          comments: this.inputComment,
+          links: this.inputLink,
+        })
 
-      this.inputComment = ""
-      this.inputLink = ""
-      console.log(docRef)
+        this.inputComment = ""
+        this.inputLink = ""
+        console.log(docRef)
+      }
     },
   },
 }
