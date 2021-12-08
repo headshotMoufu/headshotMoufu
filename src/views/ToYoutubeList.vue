@@ -25,9 +25,9 @@
           <img width="250" height="100" v-bind:src="movie.url" />
         </a>
 
-        <!--<li>再生数: {{ movie.view_count }}</li>
+        <li>再生数: {{ movie.view_count }}</li>
         <li>いいね数: {{ movie.like_count }}</li>
-        <li>コメント数: {{ movie.comment_count }}</li>-->
+        <li>コメント数: {{ movie.comment_count }}</li>
         <li>etc..</li>
       </ul>
     </videoInLists>
@@ -148,18 +148,49 @@ export default {
         .then(function (res) {
           self.tmp_results = res.data.items
           console.log(self.tmp_results)
-          self.tmp_results3.push({
-            title: self.tmp_results[0].snippet.title,
-            video_id: self.tmp_results[0].id.videoId,
-            url: self.tmp_results[0].snippet.thumbnails.medium.url,
-          })
-          self.results3 = self.tmp_results3
-          self.count += 1
-          if (self.count < 2) {
-            setTimeout(self.search_video, 2000)
-          } else {
-            self.count = 0
-          }
+          self.params2.id = self.tmp_results[0].id.videoId
+          console.log(self.params2.id)
+          axios
+            .get("https://www.googleapis.com/youtube/v3/videos", {
+              params: self.params2,
+            })
+            .then(function (res) {
+              self.tmp_results2 = res.data.items
+              console.log(self.tmp_results2)
+              /*
+                  埋もれている動画の条件（暫定）
+                  1.再生数が1000 ~ 50000
+                  2.いいね数が再生数/100 以上
+              */
+              if (
+                //1.
+                self.tmp_results2[0].statistics.viewCount >= 1000 &&
+                self.tmp_results2[0].statistics.viewCount <= 50000
+              ) {
+                if (
+                  //2.
+                  self.tmp_results2[0].statistics.likeCount >=
+                  self.tmp_results2[0].statistics.viewCount / 1000
+                ) {
+                  self.tmp_results3.push({
+                    title: self.tmp_results[0].snippet.title,
+                    video_id: self.tmp_results[0].id.videoId,
+                    url: self.tmp_results[0].snippet.thumbnails.medium.url,
+                    view_count: self.tmp_results2[0].statistics.viewCount,
+                    like_count: self.tmp_results2[0].statistics.likeCount,
+                    comment_count: self.tmp_results2[0].statistics.commentCount,
+                  })
+                }
+              }
+
+              self.count += 1
+              if (self.count < 20) {
+                setTimeout(self.search_video, 200)
+              } else {
+                self.count = 0
+                self.results3 = self.tmp_results3
+              }
+            })
         })
     },
     search_rule: function () {},
