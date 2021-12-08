@@ -38,12 +38,11 @@ export default {
     return {
       inputComment: "",
       inputLink: "",
-      hantei: "https?://[\\w!?/+\\-_~;.,*&@#$%()'[\\]]+ ",
     }
   },
   methods: {
     async postMessage() {
-      if (this.hantei != this.inputLink.exec()) {
+      if (this.inputLink.includes("https://") === false) {
         window.alert("再入力してください")
         this.inputComment = ""
         this.inputLink = ""
