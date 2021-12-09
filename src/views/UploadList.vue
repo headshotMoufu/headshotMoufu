@@ -332,7 +332,6 @@
 <style scoped>
 .upload-list {
   display: flex;
-  padding: 0 5rem;
 }
 .contents {
   width: 100%;
