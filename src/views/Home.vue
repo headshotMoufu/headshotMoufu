@@ -151,7 +151,11 @@
           <div class="menu">
             <h2 class="menu-title">みんなのおすすめ</h2>
             <div class="menu-text">
-              ここではみんなのおすすめ動画を見ることができます。また、<router-link to="/upload" class="router-link"><span>ここ </span></router-link>をクリックする、もしくは上部のプラスボタンを押すことであなたのおすすめ動画を投稿することができます。
+              ここではみんなのおすすめ動画を見ることができます。また、<router-link
+                to="/upload"
+                class="router-link"
+                ><span>ここ </span></router-link
+              >をクリックする、もしくは上部のプラスボタンを押すことであなたのおすすめ動画を投稿することができます。
             </div>
           </div>
         </router-link>
