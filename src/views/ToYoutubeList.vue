@@ -119,7 +119,8 @@ export default {
         */
         //publishedAfter:,  publishedAfter パラメータは、指定した日時より後に作成されたリソースのみが API レスポンスに含まれるように指定します。この値は RFC 3339 形式の date-time 値です（1970-01-01T00:00:00Z）。
         //publishedBefore:,  publishedBefore パラメータは、指定した日時より前に作成されたリソースのみが API レスポンスに含まれるように指定します。
-        key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
+        //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
+        key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
       },
       params2: {
         //動画情報所得のためのパラメータ
@@ -137,7 +138,7 @@ export default {
       this.results3 = null
       console.log(this.results3)
       let day = new Date()
-      day.setDate(day.getDate() - 30 - this.count)
+      day.setDate(day.getDate() - 30 - 3 * this.count)
       this.params.publishedBefore = day
       this.params.q = this.keyword
       var self = this
