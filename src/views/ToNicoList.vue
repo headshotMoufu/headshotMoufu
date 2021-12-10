@@ -212,7 +212,6 @@ export default {
 }
 </script>
 
->>>>>>> origin/master
 <style scoped>
 .to-nico-list {
   display: flex;
@@ -304,13 +303,3 @@ export default {
   font-size: 5rem;
 }
 </style>
-
-<script>
-import videoInLists from "@/components/VideoInLists"
-
-export default {
-  components: {
-    videoInLists,
-  },
-}
-</script>

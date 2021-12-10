@@ -453,7 +453,7 @@ g
   }
 }
 @media screen and (min-width: 1447px) {
- .fade-in-left {
+  .fade-in-left {
     position: relative;
     margin-top: 8rem;
     background-color: rgb(131, 131, 131);
@@ -577,7 +577,7 @@ g
   }
 }
 @media screen and (max-width: 1447px) {
- .fade-in-left {
+  .fade-in-left {
     position: relative;
     margin-top: 8rem;
     background-color: rgb(131, 131, 131);
