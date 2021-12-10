@@ -1,21 +1,26 @@
 <template>
   <div class="youtube-list">
     <h1 class="title">Youtube動画発掘</h1>
+    <img src="../assets/videoExcavation.svg" />
     <!--You-->
     <div class="youtube-search">
-      <input
-        class="youtube-search-text"
-        size="40"
-        v-model="keyword"
-        placeholder="検索キーワードを入力"
-      />
-      <button v-on:click="search_video">検索</button>
+      <div class="search-block">
+        <input
+          class="youtube-search-text"
+          size="40"
+          v-model="keyword"
+          placeholder="検索キーワードを入力"
+        />
+        <div class="erase-button" v-on:click="erase_video">×</div>
+      </div>
+      <div class="search-button" v-on:click="search_video">🔍</div>
     </div>
+
     <!--<button v-on:click="now">現在時刻</button>
     <div>{{ nowtime }}</div>-->
     <videoInLists
       class="video-in-lists"
-      v-for="movie in results3"
+      v-for="movie in results"
       v-bind:key="movie.video_id"
     >
       <ul>
@@ -36,24 +41,52 @@
 
 <style scoped>
 .youtube-list {
-  background-color: black;
-  padding: 5rem;
+  padding: 10rem;
 }
 .title {
   text-align: center;
   margin-bottom: 5rem;
   font-size: 4rem;
 }
+
 .youtube-search {
   display: flex;
   justify-content: center;
-
   width: 100%;
 }
-.youtube-search-text {
-  width: 400px;
-  height: 2rem;
+
+.search-block {
+  display: flex;
+  border-radius: 10px;
 }
+
+.youtube-search-text {
+  border: none;
+  outline: none;
+  width: 400px;
+  height: 3rem;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.erase-button {
+  background-color: white;
+  padding: 0 1rem;
+  color: rgb(167, 167, 167);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 2rem;
+}
+.search-button {
+  padding: 0 1rem;
+  font-size: 2rem;
+  border-radius: 2px;
+  background-color: rgb(58, 58, 58);
+}
+.search-button:hover {
+  opacity: 0.7;
+}
+
 .video-in-lists {
   width: 50%;
   height: 20rem;
@@ -85,13 +118,12 @@ export default {
   },
   data: function () {
     return {
+      image: "../assets/videoExcavation.svg", //検索中画像表示
       nowtime: null,
       tmp_results: [], //検索結果情報を格納する配列
       results: null,
       tmp_results2: [], //検索結果の動画情報を格納する配列
-      results2: null,
       tmp_results3: [], //掘り出し物の動画を格納する配列
-      results3: null, //埋もれてる動画結果
 
       count: 0,
       keyword: "J-POP",
@@ -119,14 +151,15 @@ export default {
         */
         //publishedAfter:,  publishedAfter パラメータは、指定した日時より後に作成されたリソースのみが API レスポンスに含まれるように指定します。この値は RFC 3339 形式の date-time 値です（1970-01-01T00:00:00Z）。
         //publishedBefore:,  publishedBefore パラメータは、指定した日時より前に作成されたリソースのみが API レスポンスに含まれるように指定します。
-        //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
-        key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
+        key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
+        //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
       },
       params2: {
         //動画情報所得のためのパラメータ
         part: "statistics",
         id: null,
-        key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
+        key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
+        //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
       },
     }
   },
@@ -135,8 +168,12 @@ export default {
   },
   methods: {
     search_video: function () {
-      this.results3 = null
+      this.image = "../assets/videoExcavation.svg"
+      this.results = null
       console.log(this.results3)
+      //検索中画面表示
+      this.search_now()
+
       let day = new Date()
       day.setDate(day.getDate() - 30 - 3 * this.count)
       this.params.publishedBefore = day
@@ -189,12 +226,21 @@ export default {
                 setTimeout(self.search_video, 200)
               } else {
                 self.count = 0
-                self.results3 = self.tmp_results3
+                self.results = self.tmp_results3
               }
             })
         })
     },
-    search_rule: function () {},
+    erase_video: function () {
+      this.keyword = ""
+    },
+    search_now: function () {
+      if (this.results === null) {
+        this.image = "../assets/videoExcavation.svg"
+      } else {
+        this.image = null
+      }
+    },
   },
 }
 </script>
