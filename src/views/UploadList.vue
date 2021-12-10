@@ -3,7 +3,6 @@
     <div class="contents">
       <h2 class="title">みんなのおすすめ</h2>
       <div class="recommend">
-        <<<<<<< HEAD
         <div v-for="data in datas" v-bind:key="data.outputId">
           <a :href="data.outputLink">
             <videoInLists>
@@ -17,7 +16,7 @@
             >
           </a>
         </div>
-        ======= >>>>>>> origin/master
+
         <videoInLists
           ><ul>
             <li>サムネ</li>
