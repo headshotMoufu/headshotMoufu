@@ -118,7 +118,7 @@
           <div v-show="firstVisible" class="fade-in-left" id="fade-in-left">
             <div class="text-left">
               <h1>
-                このアプリでは、あなたが見つけた、まだ世の中に広まっていないけど面白い動画を皆に紹介できます。もちろん、同様に他の人が紹介している動画を見ることもでき、<br />あなたの動画ライフをより満喫させるでしょう。
+                このアプリでは、あなたが見つけた、まだ世の中に広まっていないけど面白い動画を皆に紹介できます。もちろん、同様に他の人が紹介している動画を見ることもでき、あなたの動画ライフをより満喫させるでしょう。
                 <!-- <br>
             ここであなたの推しをバズらせて応援するもよし、近い未来にバズる方の古参になるもよし。<br>
             さあ、これを見ているあなた自身の手でインフルエンサーをつくり上げてください！ -->
@@ -148,7 +148,7 @@
       <div class="menu-list">
         <div class="menu-container">
           <router-link class="router-link" to="/uploadList">
-            <div class="menu">
+            <div class="menu menu-min">
               <h2 class="menu-title">みんなのおすすめ</h2>
               <div class="menu-text">
                 ここではみんなのおすすめ動画を見ることができます。また、<router-link
@@ -165,13 +165,13 @@
             </div>
           </router-link>
           <router-link class="router-link" to="/toYoutubeList">
-            <div class="menu">
+            <div class="menu menu-you">
               <h2 class="menu-title">YouTube動画発掘</h2>
               <div class="menu-text">ここではユーチューブで～</div>
             </div></router-link
           >
           <router-link class="router-link" to="/toNicoList"
-            ><div class="menu">
+            ><div class="menu menu-nico">
               <h2 class="menu-title">ニコニコ動画発掘</h2>
               <div class="menu-text">ここではニコニコ動画で～</div>
             </div></router-link
@@ -451,127 +451,496 @@
     border-top-color: rgb(141, 141, 141);
   }
 }
-.fade-in-left {
-  position: relative;
-  margin-top: 8rem;
-  background-color: rgb(131, 131, 131);
-  font-size: 6rem;
-  padding: 5rem;
-  clip-path: polygon(0% 20%, 70% 20%, 85% 95%, 0% 95%);
-  z-index: 5;
+@media screen and (min-width: 1447px) {
+ .fade-in-left {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 5rem;
+    clip-path: polygon(0% 20%, 70% 20%, 85% 95%, 0% 95%);
+    z-index: 5;
+  }
+  .first-leave-active,
+  .first-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .first-enter,
+  .first-leave-to {
+    opacity: 0;
+    transform: translateX(-85%);
+  }
+  .first-enter-to,
+  .first-leave {
+    transform: transalate(0);
+  }
+  .fade-in-right {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 2rem;
+    clip-path: polygon(30% 0%, 100% 0%, 100% 95%, 15% 95%);
+    z-index: 5;
+  }
+  .second-leave-active,
+  .second-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .second-enter,
+  .second-leave-to {
+    opacity: 0;
+    transform: translateX(85%);
+  }
+  .second-enter-to,
+  .second-leave {
+    transform: transalate(0);
+  }
+  .fade-in-last {
+    position: relative;
+    width: 80%;
+    background-color: rgb(85, 85, 85);
+    margin: 20rem auto 0;
+    padding: 8rem;
+    border-radius: 50%;
+    z-index: 5;
+  }
+  .last-leave-active,
+  .last-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .last-enter-to,
+  .last-leave {
+    transform: scale(1);
+    font-size: 15rem;
+  }
+  .last-enter,
+  .last-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .text-left {
+    padding-top: 3rem;
+  }
+  .text-last {
+    font-size: 8rem;
+  }
+  .text-left h1 {
+    text-align: left;
+    margin-right: 30%;
+  }
+  .text-right h1 {
+    text-align: right;
+    margin-left: 30%;
+  }
+
+  .menu-list {
+    background-color: rgb(224, 224, 224);
+  }
+  .menu-container {
+    border-top: rgb(80, 80, 80) dotted 1rem;
+    border-bottom: rgb(80, 80, 80) dotted 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8rem;
+    padding: 15rem 8rem;
+  }
+  .menu {
+    font-size: 3rem;
+    transform: scale(1);
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  .menu:hover {
+    transform: scale(1.1);
+  }
+  .menu-title {
+    background-color: rgb(75, 75, 75);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+  }
+  .menu-text {
+    background-color: white;
+    padding: 2rem;
+  }
+  .menu-text span {
+    color: blue;
+  }
+  .spanLarge {
+    font-size: 2rem;
+    border-bottom: 0.1rem solid blue;
+  }
+  .spanSmall {
+    font-size: 2rem;
+  }
 }
-.first-leave-active,
-.first-enter-active {
-  transition: opacity 1s, transform 1s;
+@media screen and (max-width: 1447px) {
+ .fade-in-left {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 5rem;
+    z-index: 5;
+  }
+  .first-leave-active,
+  .first-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .first-enter,
+  .first-leave-to {
+    opacity: 0;
+    transform: translateX(-85%);
+  }
+  .first-enter-to,
+  .first-leave {
+    transform: transalate(0);
+  }
+  .fade-in-right {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 2rem;
+    clip-path: polygon(30% 0%, 100% 0%, 100% 95%, 15% 95%);
+    z-index: 5;
+  }
+  .second-leave-active,
+  .second-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .second-enter,
+  .second-leave-to {
+    opacity: 0;
+    transform: translateX(85%);
+  }
+  .second-enter-to,
+  .second-leave {
+    transform: transalate(0);
+  }
+  .fade-in-last {
+    position: relative;
+    width: 80%;
+    background-color: rgb(85, 85, 85);
+    margin: 20rem auto 0;
+    padding: 8rem;
+    border-radius: 50%;
+    z-index: 5;
+  }
+  .last-leave-active,
+  .last-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .last-enter-to,
+  .last-leave {
+    transform: scale(1);
+    font-size: 15rem;
+  }
+  .last-enter,
+  .last-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .text-left {
+    padding-top: 3rem;
+  }
+  .text-last {
+    font-size: 8rem;
+  }
+  .text-left h1 {
+    text-align: left;
+    margin-right: 30%;
+  }
+  .text-right h1 {
+    text-align: right;
+    margin-left: 30%;
+  }
+
+  .menu-list {
+    background-color: rgb(224, 224, 224);
+  }
+  .menu-container {
+    border-top: rgb(80, 80, 80) dotted 1rem;
+    border-bottom: rgb(80, 80, 80) dotted 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8rem;
+    padding: 15rem 8rem;
+  }
+  .menu {
+    font-size: 3rem;
+    transform: scale(1);
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  .menu:hover {
+    transform: scale(1.1);
+  }
+  .menu-title {
+    background-color: rgb(75, 75, 75);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+  }
+  .menu-text {
+    background-color: white;
+    padding: 2rem;
+  }
+  .menu-text span {
+    color: blue;
+  }
+  .spanLarge {
+    font-size: 2rem;
+    border-bottom: 0.1rem solid blue;
+  }
+  .spanSmall {
+    font-size: 2rem;
+  }
 }
-.first-enter,
-.first-leave-to {
-  opacity: 0;
-  transform: translateX(-85%);
+/* @media screen and (max-width: 1258px) {
+  .fade-in-left {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 5rem;
+    z-index: 5;
+  }
+  .first-leave-active,
+  .first-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .first-enter,
+  .first-leave-to {
+    opacity: 0;
+    transform: translateX(-85%);
+  }
+  .first-enter-to,
+  .first-leave {
+    transform: transalate(0);
+  }
+  .fade-in-right {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 2rem;
+    z-index: 5;
+  }
+  .second-leave-active,
+  .second-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .second-enter,
+  .second-leave-to {
+    opacity: 0;
+    transform: translateX(85%);
+  }
+  .second-enter-to,
+  .second-leave {
+    transform: transalate(0);
+  }
+  .fade-in-last {
+    position: relative;
+    width: 50%;
+    background-color: rgb(85, 85, 85);
+    margin: 20rem auto 0;
+    padding: 5rem;
+    border-radius: 50%;
+    z-index: 5;
+  }
+  .last-leave-active,
+  .last-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .last-enter-to,
+  .last-leave {
+    transform: scale(1);
+    font-size: 15rem;
+  }
+  .last-enter,
+  .last-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .text-last {
+    font-size: 7rem;
+  }
+  .text-left h1 {
+    text-align: left;
+  }
+  .text-right h1 {
+    text-align: right;
+  }
+
+  .menu-list {
+    background-color: rgb(224, 224, 224);
+  }
+  .menu-container {
+    border-top: rgb(80, 80, 80) dotted 1rem;
+    border-bottom: rgb(80, 80, 80) dotted 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8rem;
+    padding: 15rem 8rem;
+  }
+  .menu {
+    font-size: 3rem;
+    transform: scale(1);
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  .menu:hover {
+    transform: scale(1.1);
+  }
+  .menu-title {
+    background-color: rgb(75, 75, 75);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+  }
+  .menu-text {
+    background-color: white;
+    padding: 2rem;
+  }
+  .menu-text span {
+    color: blue;
+  }
+  .spanLarge {
+    font-size: 2rem;
+    border-bottom: 0.1rem solid blue;
+  }
+  .spanSmall {
+    font-size: 2rem;
+  }
 }
-.first-enter-to,
-.first-leave {
-  transform: transalate(0);
-}
-.fade-in-right {
-  position: relative;
-  margin-top: 8rem;
-  background-color: rgb(131, 131, 131);
-  font-size: 6rem;
-  padding: 2rem;
-  clip-path: polygon(30% 0%, 100% 0%, 100% 95%, 15% 95%);
-  z-index: 5;
-}
-.second-leave-active,
-.second-enter-active {
-  transition: opacity 1s, transform 1s;
-}
-.second-enter,
-.second-leave-to {
-  opacity: 0;
-  transform: translateX(85%);
-}
-.second-enter-to,
-.second-leave {
-  transform: transalate(0);
-}
-.fade-in-last {
-  position: relative;
-  width: 80%;
-  background-color: rgb(85, 85, 85);
-  margin: 20rem auto 0;
-  padding: 8rem;
-  border-radius: 50%;
-  z-index: 5;
-}
-.last-leave-active,
-.last-enter-active {
-  transition: opacity 1s, transform 1s;
-}
-.last-enter-to,
-.last-leave {
-  transform: scale(1);
-  font-size: 15rem;
-}
-.last-enter,
-.last-leave-to {
-  opacity: 0;
-  transform: scale(0);
-}
-.text-left {
-  padding-top: 3rem;
-}
-.text-last {
-  font-size: 8rem;
-}
-.text-left h1 {
-  text-align: left;
-  margin-right: 30%;
-}
-.text-right h1 {
-  text-align: right;
-  margin-left: 30%;
-}
-.menu-list {
-  background-color: rgb(224, 224, 224);
-}
-.menu-container {
-  border-top: rgb(80, 80, 80) dotted 1rem;
-  border-bottom: rgb(80, 80, 80) dotted 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8rem;
-  padding: 15rem 8rem;
-}
-.menu {
-  font-size: 3rem;
-  transform: scale(1);
-  transition: transform 0.5s;
-  cursor: pointer;
-}
-.menu:hover {
-  transform: scale(1.1);
-}
-.menu-title {
-  background-color: rgb(75, 75, 75);
-  padding: 2rem;
-  text-align: center;
-  color: white;
-}
-.menu-text {
-  background-color: white;
-  padding: 2rem;
-}
-.menu-text span {
-  color: blue;
-}
-.spanLarge {
-  font-size: 2rem;
-  border-bottom: 0.1rem solid blue;
-}
-.spanSmall {
-  font-size: 2rem;
-}
+@media screen and (max-width: 600px) {
+  .question {
+    padding-bottom: 10rem;
+  }
+  .fade-in-left {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 3rem;
+    padding: 3rem;
+    z-index: 5;
+  }
+  .first-leave-active,
+  .first-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .first-enter,
+  .first-leave-to {
+    opacity: 0;
+    transform: translateX(-85%);
+  }
+  .first-enter-to,
+  .first-leave {
+    transform: transalate(0);
+  }
+  .fade-in-right {
+    position: relative;
+    margin-top: 8rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 3rem;
+    padding: 2rem;
+    z-index: 5;
+  }
+  .second-leave-active,
+  .second-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .second-enter,
+  .second-leave-to {
+    opacity: 0;
+    transform: translateX(85%);
+  }
+  .second-enter-to,
+  .second-leave {
+    transform: transalate(0);
+  }
+  .fade-in-last {
+    position: relative;
+    width: 50%;
+    background-color: rgb(85, 85, 85);
+    margin: 10rem auto 0;
+    padding: 5rem;
+    border-radius: 50%;
+    z-index: 5;
+  }
+  .last-leave-active,
+  .last-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .last-enter-to,
+  .last-leave {
+    transform: scale(1);
+  }
+  .last-enter,
+  .last-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .text-last {
+    font-size: 3rem;
+  }
+  .text-left h1 {
+    text-align: left;
+  }
+  .text-right h1 {
+    text-align: right;
+  }
+  .menu-list {
+    background-color: rgb(224, 224, 224);
+  }
+  .menu-container {
+    border-top: rgb(80, 80, 80) dotted 1rem;
+    border-bottom: rgb(80, 80, 80) dotted 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 5rem;
+    padding: 15rem 8rem;
+  }
+  .menu {
+    font-size: 3rem;
+    transform: scale(1);
+    transition: transform 0.5s;
+    cursor: pointer;
+    height: 50%;
+  }
+  .menu:hover {
+    transform: scale(1.1);
+  }
+  .menu-min {
+    grid-row: 1;
+  }
+  .menu-you {
+    grid-row: 2;
+  }
+  .menu-nico {
+    grid-row: 3;
+  }
+  .menu-title {
+    background-color: rgb(75, 75, 75);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+  }
+  .menu-text {
+    background-color: white;
+    padding: 2rem;
+    height: 100%;
+  }
+  .menu-text span {
+    color: blue;
+  }
+  .spanLarge {
+    border-bottom: 0.1rem solid blue;
+  }
+} */
 </style>
 
 <script>

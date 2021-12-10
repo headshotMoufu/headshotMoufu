@@ -61,6 +61,7 @@
 
 <style scoped>
 .header {
+  position: relative;
   background-color: rgb(59, 59, 59);
   height: 6rem;
   display: flex;

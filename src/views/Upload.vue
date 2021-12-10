@@ -21,15 +21,20 @@
 
 <style scoped>
 .upload {
+  position: absolute;
+  top: 0;
+  background-color: rgb(184, 184, 184);
   height: 100vh;
   width: 100%;
   text-align: center;
+  z-index: 5;
 }
 .title {
+  padding-top: 10rem;
   font-size: 3rem;
 }
 .form {
-  padding: 6rem 0 3.4 rem;
+  padding-top: 6rem;
 }
 .small-title {
   font-size: 3rem;
