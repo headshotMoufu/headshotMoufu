@@ -22,27 +22,19 @@
     />
     <div class="menu" id="menu">
       <ul class="menu-list">
-        <li>
-          <h3 @mouseover="recoSwitch" @mouseout="exOff">
-            <router-link class="router-link" to="/uploadList"
-              >みんなのおすすめ</router-link
-            >
-          </h3>
-        </li>
-        <li>
-          <h3 @mouseover="youSwitch" @mouseout="exOff">
-            <router-link class="router-link" to="/toYoutubeList"
-              >YouTube動画発掘</router-link
-            >
-          </h3>
-        </li>
-        <li>
-          <h3 @mouseover="nicoSwitch" @mouseout="exOff">
-            <router-link class="router-link" to="/toNicoList"
-              >ニコニコ動画発掘</router-link
-            >
-          </h3>
-        </li>
+        <router-link class="router-link" to="/uploadList">
+          <li class="min-li" @mouseover="recoSwitch" @mouseout="exOff">
+            <h3>みんなの<br>おすすめ</h3>
+          </li></router-link
+        ><router-link class="router-link" to="/toYoutubeList">
+          <li class="you-li" @mouseover="youSwitch" @mouseout="exOff">
+            <h3>YouTube<br>動画発掘</h3>
+          </li></router-link
+        ><router-link class="router-link" to="/toNicoList">
+          <li class="nico-li" @mouseover="nicoSwitch" @mouseout="exOff">
+            <h3>ニコニコ<br>動画発掘</h3>
+          </li></router-link
+        >
         <!-- <li>
           <h3>
             <router-link class="router-link" to="/toNicoList"
@@ -52,8 +44,8 @@
         </li> -->
       </ul>
     </div>
-    <div @click="switchMenu" class="curten" v-if="curtenSwitch"></div>
-    <div v-if="recoSeen" class="reco-ex ex">
+    <div @click="switchMenu" class="curten" v-show="curtenSwitch"></div>
+    <!-- <div v-if="recoSeen" class="reco-ex ex">
       <explanation>皆が紹介したい動画を見れます。</explanation>
     </div>
     <div v-if="youSeen" class="you-ex ex">
@@ -64,12 +56,13 @@
     </div>
     <div v-if="upSeen" class="up-ex ex">
       <explanation>あなたのおすすめ動画を紹介できます。</explanation>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <style scoped>
 .header {
+  position: relative;
   background-color: rgb(59, 59, 59);
   height: 6rem;
   display: flex;
@@ -163,7 +156,7 @@
 }
 .menu {
   position: fixed;
-  width: 17%;
+  width: 23.315rem;
   height: 100%;
   background-color: rgb(255, 255, 255);
   transform: translateX(100%);
@@ -177,14 +170,44 @@
   transform: translateX(0);
 }
 .menu-list li {
+  position: relative;
+  height: 10rem;
   font-size: 3.8rem;
   border-bottom: 0.2rem solid black;
   padding: 2rem 6rem;
 }
+.menu-list li h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .menu-list li:hover {
+  position: relative;
   font-size: 4.4rem;
   border-bottom: 0.2rem solid black;
-  padding: 1.8rem 5.5rem;
+  padding: 2rem 5.5rem;
+}
+.menu-list li:hover::before {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  background-color: white;
+  width: 30rem;
+  height: 7.8rem;
+  border-radius: 50%;
+  z-index: 1;
+  line-height: 7.8rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.min-li:hover::before {
+  content: "みんなが紹介したい動画を見れます。";
+}
+.you-li:hover::before {
+  content: "はやる前のyoutube動画が見れます。";
+}
+.nico-li:hover::before {
+  content: "はやる前のニコニコ動画が見れます。";
 }
 .curten {
   position: fixed;
@@ -215,11 +238,11 @@
 </style>
 
 <script>
-import explanation from "@/components/Explanation.vue"
+// import explanation from "@/components/Explanation.vue"
 
 export default {
   components: {
-    explanation,
+    // explanation,
   },
   data() {
     return {
@@ -237,6 +260,7 @@ export default {
       const header = document.getElementById("header")
       header.classList.toggle("open-header")
       this.curtenSwitch = !this.curtenSwitch
+      this.$emit("headerSwitch")
     },
     recoSwitch() {
       this.recoSeen = true
