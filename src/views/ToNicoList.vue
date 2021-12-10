@@ -220,13 +220,14 @@ export default {
   width: 100%;
 }
 .title {
-  font-size: 2rem;
-  margin-bottom: 5rem;
+  font-size: 4rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
 }
+
 .searchtitle {
-  font-size: 2rem;
+  font-size: 3rem;
   display: flex;
   justify-content: center;
 }
@@ -244,11 +245,13 @@ export default {
 .TagWord {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  font-size: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .TagBox {
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,24 +269,24 @@ export default {
   grid-template-columns: repeat(5, 1fr);
 
   column-gap: 7rem;
-  row-gap: 10rem;
+  row-gap: 14rem;
 }
 .Movie50 {
-  padding-bottom: 10rem;
+  padding-bottom: 13rem;
   background-color: gray;
 }
 .Movie1000 {
-  padding-bottom: 10rem;
+  padding-bottom: 13rem;
   background-color: gray;
 }
 .Movielast {
-  padding-bottom: 10rem;
+  padding-bottom: 13rem;
   background-color: gray;
 }
 .kozan {
   margin: 2rem;
   font-size: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
