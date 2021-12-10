@@ -212,6 +212,7 @@ export default {
 }
 </script>
 
+>>>>>>> origin/master
 <style scoped>
 .to-nico-list {
   display: flex;
@@ -264,6 +265,7 @@ export default {
   margin: 1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+
   column-gap: 7rem;
   row-gap: 10rem;
 }
@@ -302,3 +304,13 @@ export default {
   font-size: 5rem;
 }
 </style>
+
+<script>
+import videoInLists from "@/components/VideoInLists"
+
+export default {
+  components: {
+    videoInLists,
+  },
+}
+</script>
