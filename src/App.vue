@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <Header @headerSwitch="headerSwitch"/>
+    <Header @headerSwitch="headerSwitch" />
     <div class="main" id="main">
       <router-view />
     </div>
@@ -43,7 +43,7 @@ export default {
     headerSwitch() {
       const main = document.getElementById("main")
       main.classList.toggle("mainPadding")
-    }
-  }
+    },
+  },
 }
 </script>

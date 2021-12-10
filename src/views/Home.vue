@@ -181,6 +181,7 @@
     </div>
   </div>
 </template>
+g
 
 <style scoped>
 .recommend {

@@ -3,6 +3,7 @@
     <router-link to="/" class="router-link"
       ><img src="../assets/videoExcavation.svg" class="logo"
     /></router-link>
+
     <div class="serch">
       <input type="text" class="serch-text" />
       <div class="serch-mark">🔍</div>
@@ -66,7 +67,6 @@
   height: 6rem;
   display: flex;
   justify-content: space-between;
-  z-index: 6;
 }
 .open-header {
   background-color: rgb(58, 58, 58);
@@ -102,6 +102,10 @@
 }
 .serch-mark {
   margin: 1rem 2rem;
+  font-size: 3rem;
+}
+.home-mark {
+  margin: 3rem;
   font-size: 3rem;
 }
 .serch-mark:hover {
@@ -142,6 +146,13 @@
   height: 3.5rem;
   margin: 1rem 2.75rem;
   cursor: pointer;
+}
+.menu-list {
+  width: 10%;
+  background-color: rgb(47, 0, 255);
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 .menu {
   position: fixed;

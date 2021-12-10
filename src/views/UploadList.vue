@@ -3,6 +3,19 @@
     <div class="contents">
       <h2 class="title">みんなのおすすめ</h2>
       <div class="recommend">
+        <div v-for="data in datas" v-bind:key="data.outputId">
+          <a :href="data.outputLink">
+            <videoInLists>
+              <ul>
+                <li>サムネ</li>
+                <li>タイトル</li>
+                <li>再生数</li>
+                <li>etc..</li>
+                <li>コメント:{{ data.outputComment }}</li>
+              </ul></videoInLists
+            >
+          </a>
+        </div>
         <videoInLists
           ><ul>
             <li>サムネ</li>
@@ -315,6 +328,7 @@
             <li>etc..</li>
           </ul></videoInLists
         >
+
         <videoInLists
           ><ul>
             <li>サムネ</li>
@@ -322,6 +336,7 @@
             <li>再生数</li>
             <li>etc..</li>
           </ul></videoInLists
+        >
         >
         <div class="etc">...</div>
       </div>
@@ -332,7 +347,6 @@
 <style scoped>
 .upload-list {
   display: flex;
-  padding: 0 5rem;
 }
 .contents {
   width: 100%;
@@ -357,10 +371,28 @@
 
 <script>
 import videoInLists from "@/components/VideoInLists"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "@/firebase.js"
 
 export default {
   components: {
     videoInLists,
+  },
+
+  data() {
+    return {
+      datas: [],
+    }
+  },
+  async created() {
+    const querySnapshot = await getDocs(collection(db, "messages"))
+    querySnapshot.forEach((doc) => {
+      this.datas.push({
+        outputComment: doc.data().comments,
+        outputLink: doc.data().links,
+        outputId: doc.id,
+      })
+    })
   },
 }
 </script>

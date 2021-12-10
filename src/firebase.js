@@ -1,6 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
+
+import { getFirestore } from "firebase/firestore"
+
+import { getFunctions } from "firebase/functions"
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,9 +18,11 @@ const firebaseConfig = {
   storageBucket: "makeinfluencer-b1bb9.appspot.com",
   messagingSenderId: "747255551982",
   appId: "1:747255551982:web:460b10d0e30e21d0e060ff",
-  measurementId: "G-43S4SV93D3"
-};
+  measurementId: "G-43S4SV93D3",
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
+export const db = getFirestore()
+export const functions = getFunctions()
