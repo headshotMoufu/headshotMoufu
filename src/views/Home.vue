@@ -85,7 +85,6 @@
         >
       </div>
     </div>
-
     <div class="guidance">
       <div class="question">
         <ul class="bg">

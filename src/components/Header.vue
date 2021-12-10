@@ -67,6 +67,7 @@
   height: 6rem;
   display: flex;
   justify-content: space-between;
+  z-index: 6;
 }
 .open-header {
   background-color: rgb(58, 58, 58);
