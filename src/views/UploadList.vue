@@ -16,7 +16,6 @@
             >
           </a>
         </div>
-
         <videoInLists
           ><ul>
             <li>サムネ</li>
