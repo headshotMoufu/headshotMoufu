@@ -118,7 +118,6 @@ export default {
           likeCounter: Using1.likeCounter,
         })
       }
-      console.log(this.UseData50)
       if (this.results1000.data.data)
         for (let i = 0; i < this.results1000.data.data.length; i++) {
           let Using2 = this.results1000.data.data[i]

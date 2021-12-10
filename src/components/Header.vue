@@ -24,15 +24,15 @@
       <ul class="menu-list">
         <router-link class="router-link" to="/uploadList">
           <li class="min-li" @mouseover="recoSwitch" @mouseout="exOff">
-            <h3>みんなの<br>おすすめ</h3>
+            <h3>みんなの<br />おすすめ</h3>
           </li></router-link
         ><router-link class="router-link" to="/toYoutubeList">
           <li class="you-li" @mouseover="youSwitch" @mouseout="exOff">
-            <h3>YouTube<br>動画発掘</h3>
+            <h3>YouTube<br />動画発掘</h3>
           </li></router-link
         ><router-link class="router-link" to="/toNicoList">
           <li class="nico-li" @mouseover="nicoSwitch" @mouseout="exOff">
-            <h3>ニコニコ<br>動画発掘</h3>
+            <h3>ニコニコ<br />動画発掘</h3>
           </li></router-link
         >
         <!-- <li>
