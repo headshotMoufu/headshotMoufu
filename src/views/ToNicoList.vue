@@ -209,16 +209,6 @@ export default {
       MovieDatalast: [],
     }
   },
-  methods: {
-    FindMovie() {
-      if (this.GetMovie === false) {
-        this.GetMovie = true
-        console.log("ok")
-      } else {
-        this.GetMovie = false
-      }
-    },
-  },
 }
 </script>
 

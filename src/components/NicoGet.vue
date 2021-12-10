@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="searchMark"><div v-on:click="NicoGet()">🔍検索🔍</div></div>
+    <div class="searchMark">
+      <div v-on:click="NicoGet()">🔍検索🔍</div>
+    </div>
   </div>
 </template>
 
@@ -54,7 +56,6 @@ export default {
 
       //GSorts取得(検索順)
       this.GSorts = "-"
-      console.log(this.SortsUB)
       if (this.SortsUB === "l") {
         this.GSorts = "%2B"
       }
@@ -117,6 +118,7 @@ export default {
           likeCounter: Using1.likeCounter,
         })
       }
+      console.log(this.UseData50)
       if (this.results1000.data.data)
         for (let i = 0; i < this.results1000.data.data.length; i++) {
           let Using2 = this.results1000.data.data[i]
