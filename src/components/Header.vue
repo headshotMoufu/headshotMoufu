@@ -154,6 +154,13 @@
   margin: 1rem 2.75rem;
   cursor: pointer;
 }
+.menu-list {
+  width: 10%;
+  background-color: rgb(47, 0, 255);
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
 .menu {
   position: fixed;
   width: 17%;
