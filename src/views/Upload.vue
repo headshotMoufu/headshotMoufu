@@ -22,9 +22,7 @@
           cols="50"
           rows="5"
         ></textarea>
-        <button type="submit" class="submit" id="submit" @click="postMessage">
-          送信
-        </button>
+        <button type="submit" class="submit" id="submit">送信</button>
       </form>
     </div>
   </div>
