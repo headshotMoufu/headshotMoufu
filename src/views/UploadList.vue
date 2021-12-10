@@ -338,7 +338,6 @@
             <li>etc..</li>
           </ul></videoInLists
         >
-        >
         <div class="etc">...</div>
       </div>
     </div>
