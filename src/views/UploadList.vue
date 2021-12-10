@@ -3,6 +3,7 @@
     <div class="contents">
       <h2 class="title">みんなのおすすめ</h2>
       <div class="recommend">
+        <<<<<<< HEAD
         <div v-for="data in datas" v-bind:key="data.outputId">
           <a :href="data.outputLink">
             <videoInLists>
@@ -16,6 +17,7 @@
             >
           </a>
         </div>
+        ======= >>>>>>> origin/master
         <videoInLists
           ><ul>
             <li>サムネ</li>
@@ -329,6 +331,15 @@
           </ul></videoInLists
         >
 
+        <videoInLists
+          ><ul>
+            <li>サムネ</li>
+            <li>タイトル</li>
+            <li>再生数</li>
+            <li>etc..</li>
+          </ul></videoInLists
+        >
+        >
         <div class="etc">...</div>
       </div>
     </div>
@@ -364,10 +375,12 @@
 import videoInLists from "@/components/VideoInLists"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "@/firebase.js"
+
 export default {
   components: {
     videoInLists,
   },
+
   data() {
     return {
       datas: [],

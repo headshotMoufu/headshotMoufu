@@ -29,37 +29,6 @@
     </div>
   </div>
 </template>
-<script>
-import { collection, addDoc } from "firebase/firestore"
-import { db } from "@/firebase.js"
-
-export default {
-  data() {
-    return {
-      inputComment: "",
-      inputLink: "",
-    }
-  },
-  methods: {
-    async postMessage() {
-      if (this.inputLink.includes("https://") === false) {
-        window.alert("再入力してください")
-        this.inputComment = ""
-        this.inputLink = ""
-      } else {
-        const docRef = await addDoc(collection(db, "messages"), {
-          comments: this.inputComment,
-          links: this.inputLink,
-        })
-
-        this.inputComment = ""
-        this.inputLink = ""
-        console.log(docRef)
-      }
-    },
-  },
-}
-</script>
 
 <style scoped>
 .upload {
@@ -92,3 +61,34 @@ export default {
   margin: 0 auto;
 }
 </style>
+
+<script>
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "@/firebase.js"
+export default {
+  data() {
+    return {
+      inputComment: "",
+      inputLink: "",
+    }
+  },
+  methods: {
+    async postMessage() {
+      if (this.inputLink.includes("https://") === false) {
+        window.alert("再入力してください")
+        this.inputComment = ""
+        this.inputLink = ""
+      } else {
+        const docRef = await addDoc(collection(db, "messages"), {
+          comments: this.inputComment,
+          links: this.inputLink,
+        })
+
+        this.inputComment = ""
+        this.inputLink = ""
+        console.log(docRef)
+      }
+    },
+  },
+}
+</script>
