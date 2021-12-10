@@ -9,14 +9,10 @@ exports.searchNico = functions.https.onCall(async (data, context) => {
   try {
     const URL =
       "https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?" +
-      data +
-      "&fields=contentId,title,viewCounter,thumbnailUrl&filters[viewCounter][gte]=10000&_sort=-viewCounter&_offset=0&_context=apiguide"
+      data
+
     const result = await fetch(URL)
-    /*
-    const result = await fetch(
-      "https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=data&targets=title&fields=contentId,title,viewCounter&filters[viewCounter][gte]=10000&_sort=-viewCounter&_offset=0&_context=apiguide"
-    )
-    */
+
     console.info(context)
     return result.json()
   } catch (error) {
