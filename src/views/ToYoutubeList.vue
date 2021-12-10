@@ -1,7 +1,7 @@
 <template>
   <div class="youtube-list">
     <h1 class="title">Youtube動画発掘</h1>
-    <img src="../assets/videoExcavation.svg" />
+    <img :src="image" />
     <!--You-->
     <div class="youtube-search">
       <div class="search-block">
@@ -118,7 +118,7 @@ export default {
   },
   data: function () {
     return {
-      image: "../assets/videoExcavation.svg", //検索中画像表示
+      image: "@/assets/logo.png", //検索中画像表示
       nowtime: null,
       tmp_results: [], //検索結果情報を格納する配列
       results: null,
