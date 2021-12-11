@@ -17,10 +17,9 @@
         <textarea
           v-model="inputComment"
           name="inputComment"
+          placeholder="コメントを入力"
           class="input-comment"
           id="inputComment"
-          cols="50"
-          rows="5"
         ></textarea>
         <button type="submit" class="submit" id="submit">送信</button>
       </form>
@@ -33,14 +32,13 @@
   position: absolute;
   top: 0;
   background-color: rgb(184, 184, 184);
-  height: 100vh;
   width: 100%;
   text-align: center;
   z-index: 5;
 }
 .title {
-  padding-top: 10rem;
-  font-size: 3rem;
+  padding-top: 15rem;
+  font-size: 5rem;
 }
 .form {
   padding-top: 6rem;
@@ -51,18 +49,20 @@
 }
 .input-url {
   height: 3rem;
-  width: 78rem;
+  width: 50%;
   margin-bottom: 5rem;
   font-size: 2rem;
 }
 .input-comment {
   margin-bottom: 5rem;
+  height: 20rem;
+  width: 50%;
   font-size: 3rem;
 }
 .submit {
   font-size: 2rem;
   display: block;
-  margin: 0 auto;
+  margin: 5rem auto 10rem;
 }
 </style>
 

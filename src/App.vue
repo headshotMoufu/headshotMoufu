@@ -18,13 +18,12 @@
   position: relative;
 }
 .main {
-  padding-top: 5rem;
   z-index: -1;
   background-color: rgb(184, 184, 184);
   color: white;
 }
 .mainPadding {
-  padding-top: 11rem;
+  padding-top: 6rem;
 }
 .router-link {
   text-decoration: none;

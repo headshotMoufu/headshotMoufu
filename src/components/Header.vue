@@ -3,13 +3,9 @@
     <router-link to="/" class="router-link"
       ><img src="../assets/videoExcavation.svg" class="logo"
     /></router-link>
-
-    <div class="serch">
-      <input type="text" class="serch-text" />
-      <div class="serch-mark">🔍</div>
-    </div>
+    <div class="product-name">MakeInfluencer</div>
     <router-link to="/upload" class="router-link"
-      ><div class="toUpload" @mouseover="upSwitch" @mouseout="exOff">
+      ><div class="toUpload">
         <span>+</span>
       </div></router-link
     >
@@ -23,16 +19,20 @@
     <div class="menu" id="menu">
       <ul class="menu-list">
         <router-link class="router-link" to="/uploadList">
-          <li class="min-li" @mouseover="recoSwitch" @mouseout="exOff">
-            <h3>みんなの<br />おすすめ</h3>
+          <li class="min-li">
+            <h3>みんなの<br>おすすめ</h3>
           </li></router-link
         ><router-link class="router-link" to="/toYoutubeList">
-          <li class="you-li" @mouseover="youSwitch" @mouseout="exOff">
-            <h3>YouTube<br />動画発掘</h3>
+          <li class="you-li">
+            <h3>YouTube<br>動画発掘</h3>
           </li></router-link
         ><router-link class="router-link" to="/toNicoList">
-          <li class="nico-li" @mouseover="nicoSwitch" @mouseout="exOff">
-            <h3>ニコニコ<br />動画発掘</h3>
+          <li class="nico-li">
+            <h3>ニコニコ<br>動画発掘</h3>
+          </li></router-link
+        ><router-link class="router-link" to="/upload">
+          <li class="toukou-li">
+            <h3>投稿</h3>
           </li></router-link
         >
         <!-- <li>
@@ -92,27 +92,10 @@
   left: 2rem;
   cursor: pointer;
 }
-.serch {
-  display: flex;
-  width: 30%;
-}
-.serch-text {
-  margin: 1.8rem 0;
-  width: 100%;
-  font-size: 1.5rem;
-}
-.serch-mark {
-  margin: 1rem 2rem;
-  font-size: 3rem;
-}
-.home-mark {
-  margin: 3rem;
-  font-size: 3rem;
-}
-.serch-mark:hover {
-  font-size: 4rem;
-  margin: 0.5rem 1.3rem;
-  cursor: pointer;
+.product-name {
+  line-height: 6rem;
+  font-size: 3.5rem;
+  color: white;
 }
 .toUpload {
   background-color: white;
@@ -148,13 +131,6 @@
   margin: 1rem 2.75rem;
   cursor: pointer;
 }
-.menu-list {
-  width: 10%;
-  background-color: rgb(47, 0, 255);
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
 .menu {
   position: fixed;
   width: 23.315rem;
@@ -180,7 +156,8 @@
 .menu-list li h3 {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .menu-list li:hover {
   position: relative;
@@ -210,6 +187,9 @@
 .nico-li:hover::before {
   content: "はやる前のニコニコ動画が見れます。";
 }
+.toukou-li:hover::before{
+  content: "あなたの紹介したい動画を投稿できます。";
+}
 .curten {
   position: fixed;
   top: 6rem;
@@ -220,21 +200,16 @@
   opacity: 0.5;
   z-index: 0.5;
 }
-.ex {
-  position: absolute;
-  right: 18%;
-}
-.reco-ex {
-  top: 6rem;
-}
-.you-ex {
-  top: 13.8rem;
-}
-.nico-ex {
-  top: 21.6rem;
-}
-.up-ex {
-  top: 6rem;
+@media screen and (max-width: 600px) {
+  .product-name {
+    font-size: 0rem;
+  }
+  .menu {
+    width: 10rem;
+  }
+  .menu li {
+    font-size: 2rem;
+  }
 }
 </style>
 
@@ -248,10 +223,6 @@ export default {
   data() {
     return {
       curtenSwitch: false,
-      recoSeen: false,
-      youSeen: false,
-      nicoSeen: false,
-      upSeen: false,
     }
   },
   methods: {
@@ -262,24 +233,6 @@ export default {
       header.classList.toggle("open-header")
       this.curtenSwitch = !this.curtenSwitch
       this.$emit("headerSwitch")
-    },
-    recoSwitch() {
-      this.recoSeen = true
-    },
-    youSwitch() {
-      this.youSeen = true
-    },
-    nicoSwitch() {
-      this.nicoSeen = true
-    },
-    upSwitch() {
-      this.upSeen = true
-    },
-    exOff() {
-      this.recoSeen = false
-      this.youSeen = false
-      this.nicoSeen = false
-      this.upSeen = false
     },
   },
 }
