@@ -2,33 +2,48 @@
   <div class="upload">
     <h1 class="title">投稿画面</h1>
     <div class="form">
-      <div class="small-title">動画URL</div>
-      <input class="input-url" id="inputUrl" name="inputUrl" required />
-      <div class="small-title">コメント</div>
-      <textarea
-        name="inputComment"
-        class="input-comment"
-        id="inputComment"
-        cols="50"
-        rows="5"
-      ></textarea>
-      <button type="submit" class="submit" id="submit" @click="button">
-        送信
-      </button>
+      <form v-on:submit.prevent="postMessage">
+        <div class="small-title">動画URL</div>
+        <input
+          v-model="inputLink"
+          class="input-url"
+          id="inputUrl"
+          name="inputUrl"
+          placeholder="urlを入力"
+          type="url"
+          required
+        />
+        <div class="small-title">コメント</div>
+        <textarea
+          v-model="inputComment"
+          name="inputComment"
+          class="input-comment"
+          id="inputComment"
+          cols="50"
+          rows="5"
+        ></textarea>
+        <button type="submit" class="submit" id="submit">送信</button>
+      </form>
     </div>
   </div>
 </template>
 
 <style scoped>
 .upload {
+  position: absolute;
+  top: 0;
+  background-color: rgb(184, 184, 184);
+  height: 100vh;
   width: 100%;
   text-align: center;
+  z-index: 5;
 }
 .title {
+  padding-top: 10rem;
   font-size: 3rem;
 }
 .form {
-  padding: 6rem 0 3.4 rem;
+  padding-top: 6rem;
 }
 .small-title {
   font-size: 3rem;
@@ -52,7 +67,32 @@
 </style>
 
 <script>
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "@/firebase.js"
 export default {
-  methods: {},
+  data() {
+    return {
+      inputComment: "",
+      inputLink: "",
+    }
+  },
+  methods: {
+    async postMessage() {
+      if (this.inputLink.includes("https://") === false) {
+        window.alert("再入力してください")
+        this.inputComment = ""
+        this.inputLink = ""
+      } else {
+        const docRef = await addDoc(collection(db, "messages"), {
+          comments: this.inputComment,
+          links: this.inputLink,
+        })
+
+        this.inputComment = ""
+        this.inputLink = ""
+        console.log(docRef)
+      }
+    },
+  },
 }
 </script>

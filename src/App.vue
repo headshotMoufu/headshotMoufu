@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
-    <Header />
-    <div class="main">
+    <Header @headerSwitch="headerSwitch" />
+    <div class="main" id="main">
       <router-view />
     </div>
   </div>
@@ -23,6 +23,9 @@
   background-color: rgb(184, 184, 184);
   color: white;
 }
+.mainPadding {
+  padding-top: 11rem;
+}
 .router-link {
   text-decoration: none;
   color: black;
@@ -36,6 +39,11 @@ export default {
   components: {
     Header,
   },
-  computed: {},
+  methods: {
+    headerSwitch() {
+      const main = document.getElementById("main")
+      main.classList.toggle("mainPadding")
+    },
+  },
 }
 </script>
