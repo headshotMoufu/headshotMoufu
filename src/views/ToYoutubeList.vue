@@ -86,27 +86,36 @@
       </ul>
     </div>
 
+    <div class="tag-header">
+      <div>
+        <img src="../assets/videoExcavation.svg" class="tag-logo" />
+      </div>
+      <div class="tag-title">検索結果</div>
+    </div>
+    <div class="newVideo-block">
+      <videoInLists
+        class="video-in-lists2"
+        v-for="movie in results"
+        v-bind:key="movie.video_id"
+      >
+        <ul>
+          <li>タイトル:{{ movie.title }}</li>
+          <li>サムネ:</li>
+          <div class="result-image">
+            <a
+              v-bind:href="'https://www.youtube.com/watch?v=' + movie.video_id"
+            >
+              <img width="300" height="200" v-bind:src="movie.url" />
+            </a>
+          </div>
+
+          <li>再生数: {{ movie.view_count }}</li>
+          <li>いいね数: {{ movie.like_count }}</li>
+          <li>コメント数: {{ movie.comment_count }}</li>
+        </ul>
+      </videoInLists>
+    </div>
     <div class="bottom-block"></div>
-
-    <videoInLists
-      class="video-in-lists"
-      v-for="movie in results"
-      v-bind:key="movie.video_id"
-    >
-      <ul>
-        <li>タイトル:{{ movie.title }}</li>
-        <li>サムネ:</li>
-        <div class="result-image">
-          <a v-bind:href="'https://www.youtube.com/watch?v=' + movie.video_id">
-            <img width="300" height="200" v-bind:src="movie.url" />
-          </a>
-        </div>
-
-        <li>再生数: {{ movie.view_count }}</li>
-        <li>いいね数: {{ movie.like_count }}</li>
-        <li>コメント数: {{ movie.comment_count }}</li>
-      </ul>
-    </videoInLists>
   </div>
 </template>
 
@@ -323,6 +332,16 @@
   margin: 1rem 2rem;
   overflow: hidden;
 }
+
+.video-in-lists2 {
+  background: #b8b8b8;
+  width: 50%;
+  height: 100%;
+  margin: 1rem 2rem;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 
 <script>
@@ -347,7 +366,7 @@ export default {
       tmp_results3: [], //掘り出し物の動画を格納する配列
 
       count: 0,
-      keyword: "J-POP",
+      keyword: "ボカロ",
       params: {
         q: "", // 検索クエリを指定します。
         part: "snippet", //とりあえずsnippetにしとけばいいっぽい？
@@ -376,8 +395,8 @@ export default {
         //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
         //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
         //key: "AIzaSyCpQxKrQqzdZLFjU7dVcg5ZCEYu6onC3Hc",
-        //key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
-        key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
+        key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
+        //key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
       },
       params2: {
         //動画情報所得のためのパラメータ
@@ -386,7 +405,8 @@ export default {
         //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
         //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
         //key: "AIzaSyCpQxKrQqzdZLFjU7dVcg5ZCEYu6onC3Hc",
-        key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
+        key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
+        //key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
       },
     }
   },
