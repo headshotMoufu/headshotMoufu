@@ -221,7 +221,7 @@ export default {
 <style scoped>
 .to-nico-list {
   display: flex;
-  min-width: none;
+  min-width: 960px;
 }
 .contents {
   width: 100%;
