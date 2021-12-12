@@ -1,91 +1,5 @@
 <template>
   <div class="home">
-    <div class="recommend">
-      <h2 class="title">今週のおすすめ</h2>
-      <div class="list">
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-        <videoInLists
-          ><ul>
-            <li>サムネ</li>
-            <li>タイトル</li>
-            <li>再生数</li>
-            <li>etc..</li>
-          </ul></videoInLists
-        >
-      </div>
-    </div>
-
     <div class="guidance">
       <div class="question">
         <ul class="bg">
@@ -139,7 +53,7 @@
           <div v-show="lastVisible" class="fade-in-last">
             <div class="text-last">
               <h1>
-                これを見ているあなたの手で<br />インフルエンサーをつくり上げてください！
+                これを見ているあなたの手で<br />インフルエンサーをつくりあげてください！
               </h1>
             </div>
           </div>
@@ -150,7 +64,7 @@
           <router-link class="router-link" to="/uploadList">
             <div class="menu menu-min">
               <h2 class="menu-title">みんなのおすすめ</h2>
-              <div class="menu-text">
+              <!-- <div class="menu-text">
                 ここではみんなのおすすめ動画を見ることができます。また、<router-link
                   to="/upload"
                   class="router-link"
@@ -161,19 +75,24 @@
                     >ここ
                   </span></router-link
                 >をクリックする、もしくは上部のプラスボタンを押すことであなたのおすすめ動画を投稿することができます。
-              </div>
+              </div> -->
             </div>
           </router-link>
           <router-link class="router-link" to="/toYoutubeList">
             <div class="menu menu-you">
               <h2 class="menu-title">YouTube動画発掘</h2>
-              <div class="menu-text">ここではユーチューブで～</div>
+              <!-- <div class="menu-text">ここではユーチューブで～</div> -->
             </div></router-link
           >
           <router-link class="router-link" to="/toNicoList"
             ><div class="menu menu-nico">
               <h2 class="menu-title">ニコニコ動画発掘</h2>
-              <div class="menu-text">ここではニコニコ動画で～</div>
+              <!-- <div class="menu-text">ここではニコニコ動画で～</div> -->
+            </div></router-link
+          > <router-link class="router-link" to="/upload"
+            ><div class="menu menu-toukou">
+              <h2 class="menu-title">投稿</h2>
+              <!-- <div class="menu-text">ここではニコニコ動画で～</div> -->
             </div></router-link
           >
         </div>
@@ -184,27 +103,17 @@
 g
 
 <style scoped>
-.recommend {
-  width: 100%;
-  border-bottom: rgb(80, 80, 80) dotted 1rem;
-}
-.title {
-  font-size: 2rem;
-  margin: 0 5rem 5rem 5rem;
-}
-.list {
-  margin: 5rem;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 5rem;
-  row-gap: 3rem;
-}
 .question {
   position: relative;
   background-color: rgb(255, 254, 254);
   width: 100%;
   text-align: center;
-  padding-bottom: 30rem;
+  padding: 20rem 0 40rem;
+}
+.question-text {
+  color: rgb(65, 65, 65);
+  font-size: 7rem;
+  z-index: 5;
 }
 .bg li {
   position: absolute;
@@ -426,17 +335,11 @@ g
     top: 82%;
   }
 }
-.question-text {
-  color: rgb(65, 65, 65);
-  font-size: 5rem;
-  padding-top: 5rem;
-  z-index: 5;
-}
 .arrow {
   position: absolute;
-  border-top: 20px solid black;
-  border-right: 20px solid;
-  border-left: 20px solid;
+  border-top: 50px solid black;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
   width: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -444,18 +347,18 @@ g
 }
 @keyframes arrow {
   0% {
-    margin-top: 0.5rem;
+    margin-top: 5rem;
     border-top-color: rgb(134, 134, 134);
   }
   100% {
-    margin-top: 1.5rem;
-    border-top-color: rgb(141, 141, 141);
+    margin-top: 7rem;
+    border-top-color: rgb(204, 204, 204);
   }
 }
-@media screen and (min-width: 1447px) {
+@media screen and (min-width: 1450px) {
   .fade-in-left {
     position: relative;
-    margin-top: 8rem;
+    margin-top: 20rem;
     background-color: rgb(131, 131, 131);
     font-size: 6rem;
     padding: 5rem;
@@ -477,7 +380,7 @@ g
   }
   .fade-in-right {
     position: relative;
-    margin-top: 8rem;
+    margin-top: 15rem;
     background-color: rgb(131, 131, 131);
     font-size: 6rem;
     padding: 2rem;
@@ -534,7 +437,6 @@ g
     text-align: right;
     margin-left: 30%;
   }
-
   .menu-list {
     background-color: rgb(224, 224, 224);
   }
@@ -542,44 +444,38 @@ g
     border-top: rgb(80, 80, 80) dotted 1rem;
     border-bottom: rgb(80, 80, 80) dotted 1rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-gap: 8rem;
-    padding: 15rem 8rem;
+    padding: 15rem 15rem;
   }
   .menu {
-    font-size: 3rem;
     transform: scale(1);
     transition: transform 0.5s;
     cursor: pointer;
+    background-color: rgb(71, 71, 71);
+    padding: 1rem;
   }
   .menu:hover {
     transform: scale(1.1);
   }
   .menu-title {
-    background-color: rgb(75, 75, 75);
-    padding: 2rem;
+    font-size: 3rem;
+    height: 10rem;
+    line-height: 10rem;
+    border: 0.5rem rgb(255, 255, 255);
     text-align: center;
-    color: white;
-  }
-  .menu-text {
-    background-color: white;
-    padding: 2rem;
-  }
-  .menu-text span {
-    color: blue;
-  }
-  .spanLarge {
-    font-size: 2rem;
-    border-bottom: 0.1rem solid blue;
-  }
-  .spanSmall {
-    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    border: 0.7rem dotted;
   }
 }
-@media screen and (max-width: 1447px) {
+@media screen and (max-width: 1450px) {
+  .question {
+    padding-bottom: 30rem;
+  }
   .fade-in-left {
-    position: relative;
-    margin-top: 8rem;
+    width: 50rem;
+    margin: 30rem 10rem auto 10rem;
     background-color: rgb(131, 131, 131);
     font-size: 6rem;
     padding: 5rem;
@@ -592,19 +488,17 @@ g
   .first-enter,
   .first-leave-to {
     opacity: 0;
-    transform: translateX(-85%);
-  }
-  .first-enter-to,
-  .first-leave {
-    transform: transalate(0);
+    transform: translateX(100%);
   }
   .fade-in-right {
-    position: relative;
-    margin-top: 8rem;
+    margin-right: 10rem;
+    position: absolute;
+    right: 0;
+    width: 50rem;
+    margin-top: 15rem;
     background-color: rgb(131, 131, 131);
     font-size: 6rem;
     padding: 2rem;
-    clip-path: polygon(30% 0%, 100% 0%, 100% 95%, 15% 95%);
     z-index: 5;
   }
   .second-leave-active,
@@ -614,17 +508,13 @@ g
   .second-enter,
   .second-leave-to {
     opacity: 0;
-    transform: translateX(85%);
-  }
-  .second-enter-to,
-  .second-leave {
-    transform: transalate(0);
+    transform: translateX(-100%);
   }
   .fade-in-last {
     position: relative;
-    width: 80%;
+    width: 70rem;
     background-color: rgb(85, 85, 85);
-    margin: 20rem auto 0;
+    margin: 50rem auto 0;
     padding: 8rem;
     border-radius: 50%;
     z-index: 5;
@@ -643,21 +533,15 @@ g
     opacity: 0;
     transform: scale(0);
   }
-  .text-left {
-    padding-top: 3rem;
-  }
   .text-last {
-    font-size: 8rem;
+    font-size: 5.5rem;
   }
   .text-left h1 {
     text-align: left;
-    margin-right: 30%;
   }
   .text-right h1 {
     text-align: right;
-    margin-left: 30%;
   }
-
   .menu-list {
     background-color: rgb(224, 224, 224);
   }
@@ -665,39 +549,225 @@ g
     border-top: rgb(80, 80, 80) dotted 1rem;
     border-bottom: rgb(80, 80, 80) dotted 1rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-gap: 8rem;
-    padding: 15rem 8rem;
+    padding: 15rem 15rem;
   }
   .menu {
-    font-size: 3rem;
     transform: scale(1);
     transition: transform 0.5s;
     cursor: pointer;
+    background-color: rgb(71, 71, 71);
+    padding: 1rem;
   }
   .menu:hover {
     transform: scale(1.1);
   }
   .menu-title {
-    background-color: rgb(75, 75, 75);
-    padding: 2rem;
+    font-size: 3rem;
+    height: 10rem;
+    line-height: 10rem;
+    border: 0.5rem rgb(255, 255, 255);
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
+    border: 0.7rem dotted;
   }
-  .menu-text {
-    background-color: white;
+}
+@media screen and (max-width: 1050px){
+  .question-text {
+    font-size: 5rem;
+  }
+  .question {
+    padding-bottom: 30rem;
+  }
+  .fade-in-left {
+    margin-left: 10rem;
+    width: 50rem;
+    margin-top: 30rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
+    padding: 5rem;
+    z-index: 5;
+  }
+  .first-leave-active,
+  .first-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .first-enter,
+  .first-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .fade-in-right {
+    margin-right: 10rem;
+    position: absolute;
+    right: 0;
+    width: 50rem;
+    margin-top: 15rem;
+    background-color: rgb(131, 131, 131);
+    font-size: 6rem;
     padding: 2rem;
+    z-index: 5;
   }
-  .menu-text span {
-    color: blue;
+  .second-leave-active,
+  .second-enter-active {
+    transition: opacity 1s, transform 1s;
   }
-  .spanLarge {
+  .second-enter,
+  .second-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  .fade-in-last {
+    position: relative;
+    width: 70rem;
+    background-color: rgb(85, 85, 85);
+    margin: 50rem auto 0;
+    padding: 8rem;
+    border-radius: 50%;
+    z-index: 5;
+  }
+  .last-leave-active,
+  .last-enter-active {
+    transition: opacity 1s, transform 1s;
+  }
+  .last-enter-to,
+  .last-leave {
+    transform: scale(1);
+    font-size: 15rem;
+  }
+  .last-enter,
+  .last-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .text-last {
+    font-size: 5.5rem;
+  }
+  .text-left h1 {
+    text-align: left;
+  }
+  .text-right h1 {
+    text-align: right;
+  }
+}
+@media screen and (max-width: 957px) {
+  .menu-list {
+    background-color: rgb(224, 224, 224);
+  }
+  .menu-container {
+    border-top: rgb(80, 80, 80) dotted 1rem;
+    border-bottom: rgb(80, 80, 80) dotted 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8rem;
+    padding: 15rem 10rem;
+  }
+  .menu {
+    transform: scale(1);
+    transition: transform 0.5s;
+    cursor: pointer;
+    background-color: rgb(71, 71, 71);
+    padding: 1rem;
+  }
+  .menu:hover {
+    transform: scale(1.1);
+  }
+  .menu-title {
+    font-size: 3rem;
+    height: 10rem;
+    line-height: 10rem;
+    border: 0.5rem rgb(255, 255, 255);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border: 0.7rem dotted;
+  }
+}
+@media screen and (max-width: 860px) {
+  .fade-in-last {
+    width: 50rem;
+  }
+}
+@media screen and (max-width: 790px) {
+  .fade-in-left {
+    margin: 30rem auto 0;
+  }
+  .fade-in-right {
+    position: relative;
+    margin: 20rem auto;
+  }
+  .menu-container {
+    padding: 15rem 10rem;
+  }
+}
+@media screen and (max-width: 790px) {
+  .question {
+    padding-bottom: 20rem;
+  }
+  .question-text {
+    font-size: 4rem;
+  }
+  .fade-in-left {
+    width: 30rem;
+  }
+  .fade-in-right {
+    position: relative;
+    margin: 20rem auto;
+    width: 30rem;
+  }
+  .fade-in-last{
+    margin-top: 10rem;
+    border-radius: 10%;
+    width: 50rem;
+    padding: 3rem;
+  }
+  .text-last {
+    font-size: rem;
+  }
+  .menu-container {
+    padding: 15rem 10rem;
+  }
+}
+@media screen and (max-width: 689px) {
+  .menu-title {
     font-size: 2rem;
-    border-bottom: 0.1rem solid blue;
   }
-  .spanSmall {
+  .menu-container {
+    padding: 10rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .question-text {
     font-size: 2rem;
   }
+  .fade-in-left {
+    width: 20rem;
+  }
+  .fade-in-right{
+    width: 25rem;
+  }
+  .fade-in-last {
+    width: 25rem;
+  }
+  .text-left {
+    font-size: 2rem;
+  }
+  .text-right {
+    font-size: 2rem;
+  }
+  .text-last {
+    font-size: 2.5rem;
+  }
+  .menu-container {
+    padding: 5rem;
+  }
+.bg li:nth-child(9) {
+  display: none;
+}
+.bg li:nth-child(10) {
+  display: none;
+}
 }
 /* @media screen and (max-width: 1258px) {
   .fade-in-left {
@@ -945,17 +1015,12 @@ g
 </style>
 
 <script>
-import videoInLists from "@/components/VideoInLists.vue"
 export default {
-  components: {
-    videoInLists,
-  },
   data() {
     return {
       firstVisible: false,
       secondVisible: false,
       lastVisible: false,
-      isSpanLarge: false,
     }
   },
   created() {
@@ -964,27 +1029,24 @@ export default {
   methods: {
     handleScroll() {
       this.scrollY = window.scrollY
-      if (!this.firatVisible) {
-        this.firstVisible = window.scrollY > 100
-      } else if (window.scrollY < 90) {
-        this.firstVisible = !this.firstVisible
-      }
-      if (!this.secondVisible) {
-        this.secondVisible = window.scrollY > 300
-      } else if (window.scrollY < 100) {
-        this.secondVisible = !this.secondVisible
-      }
-      if (!this.lastVisible) {
-        this.lastVisible = window.scrollY > 700
-      } else if (window.scrollY < 650) {
-        this.lastVisible = !this.lastVisible
-      }
-    },
-    spanOver() {
-      this.isSpanLarge = true
-    },
-    spanOut() {
-      this.isSpanLarge = false
+      if (window.scrollY>200) {
+        this.firstVisible = true
+      } 
+      // else if (window.scrollY < 90) {
+      //   this.firstVisible = !this.firstVisible
+      // }
+      if (window.scrollY>500) {
+        this.secondVisible = true
+      } 
+      // else if (window.scrollY < 100) {
+      //   this.secondVisible = !this.secondVisible
+      // }
+      if (window.scrollY>800) {
+        this.lastVisible = true
+      } 
+      // else if (window.scrollY < 650) {
+      //   this.lastVisible = !this.lastVisible
+      // }
     },
   },
 }
