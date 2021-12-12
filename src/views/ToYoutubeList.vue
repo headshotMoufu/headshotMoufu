@@ -414,8 +414,6 @@ export default {
     msg: String,
   },
   mounted: function () {
-    console.log("mounted")
-    console.log(this.$el)
     this.new_video_result = null
     this.params.maxResults = 10
     var self = this
@@ -425,7 +423,6 @@ export default {
       })
       .then(function (res) {
         self.tmp_new_video_result = res.data.items
-        console.log(self.tmp_new_video_result)
         self.new_video_result = self.tmp_new_video_result
       })
   },
@@ -433,7 +430,6 @@ export default {
     search_video: function () {
       this.image = "../assets/videoExcavation.svg"
       this.results = null
-      console.log(this.results3)
       //検索中画面表示
       this.search_now = 1
       this.search_now_text = "動画発掘中！"
@@ -449,16 +445,13 @@ export default {
         })
         .then(function (res) {
           self.tmp_results = res.data.items
-          console.log(self.tmp_results)
           self.params2.id = self.tmp_results[0].id.videoId
-          console.log(self.params2.id)
           axios
             .get("https://www.googleapis.com/youtube/v3/videos", {
               params: self.params2,
             })
             .then(function (res) {
               self.tmp_results2 = res.data.items
-              console.log(self.tmp_results2)
               /*
                   埋もれている動画の条件（暫定）
                   1.再生数が1000 ~ 50000
