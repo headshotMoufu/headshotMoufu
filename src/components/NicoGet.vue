@@ -1,7 +1,13 @@
 <template>
   <div>
     <div class="searchMark">
-      <div v-on:click="NicoGet()">🔍検索🔍</div>
+      <button
+        v-bind:disabled="isSearch"
+        v-on:click="NicoGet()"
+        class="searchButton"
+      >
+        🔍検索🔍
+      </button>
     </div>
   </div>
 </template>
@@ -13,6 +19,7 @@ import { httpsCallable, connectFunctionsEmulator } from "firebase/functions"
 export default {
   data() {
     return {
+      isSearch: false,
       searchWords50: "",
       searchWords1000: "",
       searchWordslast: "",
@@ -30,6 +37,8 @@ export default {
   props: ["GetMovie", "query", "Targets", "Sorts", "SortsUB"],
   methods: {
     async NicoGet() {
+      this.isSearch = true
+      setTimeout(this.buttonEnable, 1000)
       //データのリセット
       this.UseData50 = []
       this.UseData1000 = []
@@ -152,6 +161,9 @@ export default {
       this.$parent.MovieData1000 = this.UseData1000
       this.$parent.MovieDatalast = this.UseDatalast
     },
+    buttonEnable() {
+      this.isSearch = false
+    },
   },
 }
 </script>
@@ -163,9 +175,8 @@ export default {
   display: flex;
   justify-content: center;
 }
-.searchMark:hover {
-  font-size: 4rem;
-  margin: 0.5rem 1.3rem;
-  cursor: pointer;
+.searchButton {
+  border: 3px solid gray;
+  background-color: yellow;
 }
 </style>
