@@ -1,6 +1,6 @@
 <template>
   <div class="youtube-list">
-    <h1 class="title">Youtube動画発掘</h1>
+    <h2 class="title">Youtube動画発掘</h2>
     <!--You-->
     <div class="youtube-search">
       <div class="search-block">
@@ -8,9 +8,11 @@
           class="youtube-search-text"
           size="40"
           v-model="keyword"
-          placeholder="検索キーワードを入力"
+          placeholder=" 検索"
         />
-        <div class="erase-button" v-on:click="erase_video">{{ erase }}</div>
+        <div class="erase-button" v-on:click="erase_video">
+          {{ erase }}
+        </div>
       </div>
       <div class="search-button" v-on:click="search_video">🔍</div>
     </div>
@@ -18,9 +20,74 @@
       <div><img :src="imageSrc" class="search-now-image" /></div>
       <div class="search-now-text">{{ search_now_text }}</div>
     </div>
+    <div class="tag-header">
+      <div>
+        <img src="../assets/videoExcavation.svg" class="tag-logo" />
+      </div>
+      <div class="tag-title">カテゴリー</div>
+    </div>
 
-    <!--<button v-on:click="now">現在時刻</button>
-    <div>{{ nowtime }}</div>-->
+    <div class="tag-block">
+      <div class="tag-button" v-on:click="search_video">映画とアニメ</div>
+      <div class="tag-button" v-on:click="search_video">自動車と乗り物</div>
+      <div class="tag-button" v-on:click="search_video">音楽</div>
+      <div class="tag-button" v-on:click="search_video">ペットと動物</div>
+      <div class="tag-button" v-on:click="search_video">スポーツ</div>
+      <div class="tag-button" v-on:click="search_video">旅行とイベント</div>
+      <div class="tag-button" v-on:click="search_video">ゲーム</div>
+      <div class="tag-button" v-on:click="search_video">コメディー</div>
+      <div class="tag-button" v-on:click="search_video">エンターテイメント</div>
+      <div class="tag-button" v-on:click="search_video">ニュースと政治</div>
+      <div class="tag-button" v-on:click="search_video">ハウツーとスタイル</div>
+      <div class="tag-button" v-on:click="search_video">教育</div>
+      <div class="tag-button" v-on:click="search_video">科学と技術</div>
+    </div>
+
+    <div class="tag-info">
+      <ul>
+        <li>検索条件を絞りたい場合は、上のカテゴリーから1つ選んでね！</li>
+      </ul>
+    </div>
+
+    <div class="tag-header">
+      <div>
+        <img src="../assets/videoExcavation.svg" class="tag-logo" />
+      </div>
+      <div class="tag-title">新着動画</div>
+    </div>
+
+    <div class="newVideo-block">
+      <videoInLists
+        class="video-in-lists"
+        v-for="new_movie in new_video_result"
+        v-bind:key="new_movie.video_id"
+      >
+        <ul>
+          <div class="result-image">
+            <a
+              v-bind:href="
+                'https://www.youtube.com/watch?v=' + new_movie.id.videoId
+              "
+            >
+              <img
+                width="90"
+                height="60"
+                v-bind:src="new_movie.snippet.thumbnails.medium.url"
+              />
+            </a>
+          </div>
+          <li>{{ new_movie.snippet.title }}</li>
+        </ul>
+      </videoInLists>
+    </div>
+    <div class="tag-info">
+      <ul>
+        <li>新着動画から面白い動画を見つけよう！</li>
+      </ul>
+    </div>
+
+    <div class="bottom-block"></div>
+
     <videoInLists
       class="video-in-lists"
       v-for="movie in results"
@@ -45,13 +112,14 @@
 
 <style scoped>
 .youtube-list {
-  height: 300vh;
+  min-height: 100vh;
   width: 100%;
+  background: #b8b8b8;
 }
 .title {
   text-align: center;
-  margin-bottom: 3rem;
-  font-size: 3rem;
+  font-size: 2rem;
+  margin-bottom: 5rem;
 }
 
 .youtube-search {
@@ -63,8 +131,8 @@
 
 .search-block {
   display: flex;
-
-  border-radius: 10px;
+  border: 0.5px solid;
+  border-color: black;
 }
 
 .youtube-search-text {
@@ -83,12 +151,19 @@
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   font-size: 2rem;
+  cursor: pointer;
+  cursor: hand;
 }
 .search-button {
   padding: 0 1rem;
   font-size: 2rem;
   border-radius: 2px;
   background-color: rgb(58, 58, 58);
+  cursor: pointer;
+  cursor: hand;
+}
+.search-button:hover {
+  opacity: 0.7;
 }
 .loading {
   display: block;
@@ -130,8 +205,110 @@
   }
 }
 
-.search-button:hover {
-  opacity: 0.7;
+.tag-header {
+  position: relative;
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+.tag-logo {
+  width: 3rem;
+}
+.tag-title {
+  position: absolute;
+  bottom: 0;
+  left: 3.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.tag-block {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  width: 90%;
+  height: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 3px;
+
+  margin-bottom: 5rem;
+}
+.newVideo-block {
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
+  width: 90%;
+  min-height: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-bottom: 5rem;
+}
+.tag-button {
+  text-align: center;
+  padding: 6px 0;
+  border: 0.5px solid;
+  width: 12rem;
+  height: 2rem;
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: black;
+  background-color: rgba(255, 255, 255);
+  cursor: pointer;
+  cursor: hand;
+}
+
+.tag-info {
+  margin: 0 auto 3rem;
+  height: 100%;
+  width: 90%;
+  font-size: 30px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  border-radius: 3px;
+}
+.tag-info ul {
+  margin: 0;
+  display: inline-block;
+  padding-left: 100%;
+  white-space: nowrap;
+  line-height: 1em;
+  animation: scroll 15s linear infinite;
+}
+.tag-info ul li {
+  display: inline;
+  margin: 0 100px 0 0;
+  color: black;
+  font-weight: bold;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.bottom-block {
+  height: 5rem;
+}
+
+.tag-button:hover {
+  color: blue;
+  border-color: black;
 }
 
 .result-image {
@@ -141,9 +318,10 @@
 
 .video-in-lists {
   background: #b8b8b8;
-  width: 70%;
-  height: 28rem;
-  margin: 0 auto 5rem;
+  width: 15rem;
+  height: 9.5rem;
+  margin: 1rem 2rem;
+  overflow: hidden;
 }
 </style>
 
@@ -157,6 +335,9 @@ export default {
   },
   data: function () {
     return {
+      new_video_result: null,
+      tmp_new_video_result: [],
+      tmp_new_video_result2: [],
       search_now: 0,
       search_now_text: "",
       nowtime: null,
@@ -180,7 +361,8 @@ export default {
         maxResults: "1", // 最大検索数（0以上50以下）
         order: "date",
         publishedBefore: null,
-        //publishedAfter: null,
+        publishedAfter: null,
+        videoCategoryId: null,
         /*
           date – リソースを作成日の新しい順に並べます。
           rating – リソースを評価の高い順に並べます。
@@ -210,6 +392,22 @@ export default {
   },
   props: {
     msg: String,
+  },
+  mounted: function () {
+    console.log("mounted")
+    console.log(this.$el)
+    this.new_video_result = null
+    this.params.maxResults = 10
+    var self = this
+    axios
+      .get("https://www.googleapis.com/youtube/v3/search", {
+        params: this.params,
+      })
+      .then(function (res) {
+        self.tmp_new_video_result = res.data.items
+        console.log(self.tmp_new_video_result)
+        self.new_video_result = self.tmp_new_video_result
+      })
   },
   methods: {
     search_video: function () {
