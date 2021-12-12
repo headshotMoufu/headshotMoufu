@@ -110,16 +110,18 @@
                 <li>
                   <div class="movieCenter"><img :src="movie.thumbUrl" /></div>
                 </li>
-                <li>
-                  <a v-bind:href="movie.contentURL">{{ movie.title }}</a>
-                </li>
-                <li>{{ movie.contentId }}</li>
-                <li>再生回数:{{ movie.viewCounter }}</li>
-                <li>
-                  マイリスト数:{{ movie.mylistCounter }}、いいね数:{{
-                    movie.likeCounter
-                  }}
-                </li>
+                <div class="moviehidden">
+                  <li>
+                    <a v-bind:href="movie.contentURL">{{ movie.title }}</a>
+                  </li>
+                  <li>{{ movie.contentId }}</li>
+                  <li>再生回数:{{ movie.viewCounter }}</li>
+                  <li>
+                    マイリスト数:{{ movie.mylistCounter }}、いいね数:{{
+                      movie.likeCounter
+                    }}
+                  </li>
+                </div>
               </ul></videoInLists
             >
           </div>
@@ -136,16 +138,18 @@
                     <img :src="movie.thumbUrl" />
                   </div>
                 </li>
-                <li>
-                  <a v-bind:href="movie.contentURL">{{ movie.title }}</a>
-                </li>
-                <li>{{ movie.contentId }}</li>
-                <li>再生回数:{{ movie.viewCounter }}</li>
-                <li>
-                  マイリスト数:{{ movie.mylistCounter }}、いいね数:{{
-                    movie.likeCounter
-                  }}
-                </li>
+                <div class="moviehidden">
+                  <li>
+                    <a v-bind:href="movie.contentURL">{{ movie.title }}</a>
+                  </li>
+                  <li>{{ movie.contentId }}</li>
+                  <li>再生回数:{{ movie.viewCounter }}</li>
+                  <li>
+                    マイリスト数:{{ movie.mylistCounter }}、いいね数:{{
+                      movie.likeCounter
+                    }}
+                  </li>
+                </div>
               </ul></videoInLists
             >
           </div>
@@ -164,19 +168,21 @@
                     <img :src="movie.thumbUrl" />
                   </div>
                 </li>
-                <li>
-                  <a v-bind:href="movie.contentURL">{{ movie.title }}</a>
-                </li>
-                <li>{{ movie.contentId }}</li>
-                <li>再生回数:{{ movie.viewCounter }}</li>
-                <li>
-                  マイリスト数:{{ movie.mylistCounter }}、いいね数:{{
-                    movie.likeCounter
-                  }}
-                </li>
-                <li>
-                  {{ movie.lastCommentTime }}
-                </li>
+                <div class="moviehidden">
+                  <li>
+                    <a v-bind:href="movie.contentURL">{{ movie.title }}</a>
+                  </li>
+                  <li>{{ movie.contentId }}</li>
+                  <li>再生回数:{{ movie.viewCounter }}</li>
+                  <li>
+                    マイリスト数:{{ movie.mylistCounter }}、いいね数:{{
+                      movie.likeCounter
+                    }}
+                  </li>
+                  <li>
+                    {{ movie.lastCommentTime }}
+                  </li>
+                </div>
               </ul></videoInLists
             >
           </div>
@@ -215,6 +221,7 @@ export default {
 <style scoped>
 .to-nico-list {
   display: flex;
+  min-width: none;
 }
 .contents {
   width: 100%;
@@ -269,18 +276,19 @@ export default {
   grid-template-columns: repeat(5, 1fr);
 
   column-gap: 7rem;
-  row-gap: 14rem;
+  row-gap: 5rem;
+  overflow: hidden;
 }
 .Movie50 {
-  padding-bottom: 13rem;
+  padding-bottom: 1rem;
   background-color: gray;
 }
 .Movie1000 {
-  padding-bottom: 13rem;
+  padding-bottom: 1rem;
   background-color: gray;
 }
 .Movielast {
-  padding-bottom: 13rem;
+  padding-bottom: 1rem;
   background-color: gray;
 }
 .kozan {
@@ -296,9 +304,15 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.moviehidden {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .video-in-lists {
   border: 0.2rem solid;
-  height: 10rem;
+  height: 21rem;
 }
 .etc {
   text-align: center;
