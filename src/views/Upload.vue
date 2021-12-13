@@ -67,13 +67,19 @@
 </style>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import {
+  collection,
+  addDoc,
+  updateDoc,
+  serverTimestamp,
+} from "firebase/firestore"
 import { db } from "@/firebase.js"
 export default {
   data() {
     return {
       inputComment: "",
       inputLink: "",
+      updateTimestamp: "",
     }
   },
   methods: {
@@ -83,14 +89,20 @@ export default {
         this.inputComment = ""
         this.inputLink = ""
       } else {
-        const docRef = await addDoc(collection(db, "messages"), {
-          comments: this.inputComment,
-          links: this.inputLink,
+        const docRef = await addDoc(
+          collection(db, "messages"),
+
+          {
+            comments: this.inputComment,
+            links: this.inputLink,
+          }
+        )
+        this.updateTimestamp = await updateDoc(docRef, {
+          timestamp: serverTimestamp(),
         })
 
         this.inputComment = ""
         this.inputLink = ""
-        console.log(docRef)
       }
     },
   },
