@@ -142,6 +142,8 @@
     </div>
 
     <div class="newVideo-block">
+      <div class="error-text">{{ error_text }}</div>
+      <div class="error-text">{{ error_text2 }}</div>
       <videoInLists
         class="video-in-lists"
         v-for="new_movie in new_video_result"
@@ -178,6 +180,8 @@
       <div class="tag-title">検索結果</div>
     </div>
     <div class="newVideo-block">
+      <div class="error-text">{{ error_text3 }}</div>
+      <div class="error-text">{{ error_text4 }}</div>
       <videoInLists
         class="video-in-lists2"
         v-for="movie in results"
@@ -346,6 +350,15 @@
 
   margin-bottom: 5rem;
 }
+
+.error-text {
+  text-align: center;
+  padding: 0 0;
+  width: 100%;
+  font-size: 3rem;
+  color: black; /*文字色*/
+  height: 100%;
+}
 .tag-button {
   text-align: center;
   padding: 6px 0;
@@ -446,6 +459,10 @@ export default {
       new_video_result: null,
       tmp_new_video_result: [],
       tmp_new_video_result2: [],
+      error_text: "",
+      error_text2: "",
+      error_text3: "",
+      error_text4: "",
 
       //最初は配列で定義したが何故かうまくいかなかった
       isActive1: false,
@@ -498,21 +515,13 @@ export default {
         */
         //publishedAfter:,  publishedAfter パラメータは、指定した日時より後に作成されたリソースのみが API レスポンスに含まれるように指定します。この値は RFC 3339 形式の date-time 値です（1970-01-01T00:00:00Z）。
         //publishedBefore:,  publishedBefore パラメータは、指定した日時より前に作成されたリソースのみが API レスポンスに含まれるように指定します。
-        //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
-        key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
-        //key: "AIzaSyCpQxKrQqzdZLFjU7dVcg5ZCEYu6onC3Hc",
-        //key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
-        //key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
+        key: "AIzaSyCnmfUxhDPgDFYHGcVmgx5yf2qeZ0-yyM4",
       },
       params2: {
         //動画情報所得のためのパラメータ
         part: "statistics",
         id: null,
-        //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
-        //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
-        //key: "AIzaSyCpQxKrQqzdZLFjU7dVcg5ZCEYu6onC3Hc",
-        //key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
-        //key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
+        key: "AIzaSyCsXfVOt3yleZ7nCOKHGttH5-5lfDZs5do",
       },
     }
   },
@@ -530,6 +539,11 @@ export default {
       .then(function (res) {
         self.tmp_new_video_result = res.data.items
         self.new_video_result = self.tmp_new_video_result
+      })
+      .catch(function (res) {
+        console.log(res)
+        self.error_text = " おっと！動画所得に失敗した！ "
+        self.error_text2 = " 作成者に問い合わせて！ "
       })
   },
   methods: {
@@ -585,8 +599,8 @@ export default {
               }
 
               self.count += 1
-              if (self.count < 10) {
-                setTimeout(self.search_video, 300)
+              if (self.count < 15) {
+                setTimeout(self.search_video, 400)
               } else {
                 self.count = 0
                 self.search_now = 0
@@ -594,6 +608,20 @@ export default {
                 self.results = self.tmp_results3
               }
             })
+            .catch(function (res) {
+              console.log(res)
+              self.error_text3 = " おっと！動画所得に失敗した！ "
+              self.error_text4 = "作成者に問い合わせて！"
+              self.search_now = 0
+              self.search_now_text = ""
+            })
+        })
+        .catch(function (res) {
+          console.log(res)
+          self.error_text3 = " おっと！動画所得に失敗した！ "
+          self.error_text4 = " 作成者に問い合わせて！ "
+          self.search_now = 0
+          self.search_now_text = ""
         })
     },
     erase_video: function () {
