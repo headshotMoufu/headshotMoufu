@@ -515,13 +515,13 @@ export default {
         */
         //publishedAfter:,  publishedAfter パラメータは、指定した日時より後に作成されたリソースのみが API レスポンスに含まれるように指定します。この値は RFC 3339 形式の date-time 値です（1970-01-01T00:00:00Z）。
         //publishedBefore:,  publishedBefore パラメータは、指定した日時より前に作成されたリソースのみが API レスポンスに含まれるように指定します。
-        key: "AIzaSyCnmfUxhDPgDFYHGcVmgx5yf2qeZ0-yyM4",
+        key: "AIzaSyBZJzZlxrkPz6sllEWC-HshZ3nfeaoZbJk",
       },
       params2: {
         //動画情報所得のためのパラメータ
         part: "statistics",
         id: null,
-        key: "AIzaSyCsXfVOt3yleZ7nCOKHGttH5-5lfDZs5do",
+        key: "AIzaSyBWOyQ07AYtSbcWd9UmurxsuL9QzX3YOXc",
       },
     }
   },
@@ -531,7 +531,9 @@ export default {
   mounted: function () {
     this.new_video_result = null
     this.params.maxResults = 10
+    this.params.key = "AIzaSyBcv6NiwYPyDN92W4bAw-xyuUgCMohwzs0"
     var self = this
+
     axios
       .get("https://www.googleapis.com/youtube/v3/search", {
         params: this.params,
@@ -558,6 +560,7 @@ export default {
       day.setDate(day.getDate() - 30 - 3 * this.count)
       this.params.publishedBefore = day
       this.params.q = this.keyword
+      this.params.key = "AIzaSyBZJzZlxrkPz6sllEWC-HshZ3nfeaoZbJk"
       var self = this
       axios
         .get("https://www.googleapis.com/youtube/v3/search", {
@@ -614,6 +617,7 @@ export default {
               self.error_text4 = "作成者に問い合わせて！"
               self.search_now = 0
               self.search_now_text = ""
+              self.params.key = "AIzaSyB49Y_iAgaXEEzZP91Br3TmpU7h4wHx35c"
             })
         })
         .catch(function (res) {
@@ -622,6 +626,7 @@ export default {
           self.error_text4 = " 作成者に問い合わせて！ "
           self.search_now = 0
           self.search_now_text = ""
+          self.params.key = "AIzaSyAivTZt-jxryoeUGeJG_0nBlyU4shT_4yE"
         })
     },
     erase_video: function () {
