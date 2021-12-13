@@ -28,19 +28,104 @@
     </div>
 
     <div class="tag-block">
-      <div class="tag-button" v-on:click="search_video">映画とアニメ</div>
-      <div class="tag-button" v-on:click="search_video">自動車と乗り物</div>
-      <div class="tag-button" v-on:click="search_video">音楽</div>
-      <div class="tag-button" v-on:click="search_video">ペットと動物</div>
-      <div class="tag-button" v-on:click="search_video">スポーツ</div>
-      <div class="tag-button" v-on:click="search_video">旅行とイベント</div>
-      <div class="tag-button" v-on:click="search_video">ゲーム</div>
-      <div class="tag-button" v-on:click="search_video">コメディー</div>
-      <div class="tag-button" v-on:click="search_video">エンターテイメント</div>
-      <div class="tag-button" v-on:click="search_video">ニュースと政治</div>
-      <div class="tag-button" v-on:click="search_video">ハウツーとスタイル</div>
-      <div class="tag-button" v-on:click="search_video">教育</div>
-      <div class="tag-button" v-on:click="search_video">科学と技術</div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive1 }]"
+        v-on:click="tag_choice1"
+      >
+        映画とアニメ
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive2 }]"
+        v-on:click="tag_choice2"
+      >
+        自動車と乗り物
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive3 }]"
+        v-on:click="tag_choice3"
+      >
+        音楽
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive4 }]"
+        v-on:click="tag_choice4"
+      >
+        ペットと動物
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive5 }]"
+        v-on:click="tag_choice5"
+      >
+        スポーツ
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive6 }]"
+        v-on:click="tag_choice6"
+      >
+        旅行とイベント
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive7 }]"
+        v-on:click="tag_choice7"
+      >
+        ゲーム
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive8 }]"
+        v-on:click="tag_choice8"
+      >
+        ブログ
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive9 }]"
+        v-on:click="tag_choice9"
+      >
+        コメディー
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive10 }]"
+        v-on:click="tag_choice10"
+      >
+        エンターテイメント
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive11 }]"
+        v-on:click="tag_choice11"
+      >
+        ニュースと政治
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive12 }]"
+        v-on:click="tag_choice12"
+      >
+        ハウツーとスタイル
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive13 }]"
+        v-on:click="tag_choice13"
+      >
+        教育
+      </div>
+      <div
+        class="tag-button"
+        v-bind:class="[{ red: isActive14 }]"
+        v-on:click="tag_choice14"
+      >
+        科学と技術
+      </div>
     </div>
 
     <div class="tag-info">
@@ -57,6 +142,8 @@
     </div>
 
     <div class="newVideo-block">
+      <div class="error-text">{{ error_text }}</div>
+      <div class="error-text">{{ error_text2 }}</div>
       <videoInLists
         class="video-in-lists"
         v-for="new_movie in new_video_result"
@@ -93,6 +180,8 @@
       <div class="tag-title">検索結果</div>
     </div>
     <div class="newVideo-block">
+      <div class="error-text">{{ error_text3 }}</div>
+      <div class="error-text">{{ error_text4 }}</div>
       <videoInLists
         class="video-in-lists2"
         v-for="movie in results"
@@ -261,6 +350,15 @@
 
   margin-bottom: 5rem;
 }
+
+.error-text {
+  text-align: center;
+  padding: 0 0;
+  width: 100%;
+  font-size: 3rem;
+  color: black; /*文字色*/
+  height: 100%;
+}
 .tag-button {
   text-align: center;
   padding: 6px 0;
@@ -316,8 +414,12 @@
 }
 
 .tag-button:hover {
-  color: blue;
+  font-weight: 800;
   border-color: black;
+}
+.red {
+  background-color: #b8b8b8;
+  color: black;
 }
 
 .result-image {
@@ -357,6 +459,27 @@ export default {
       new_video_result: null,
       tmp_new_video_result: [],
       tmp_new_video_result2: [],
+      error_text: "",
+      error_text2: "",
+      error_text3: "",
+      error_text4: "",
+
+      //最初は配列で定義したが何故かうまくいかなかった
+      isActive1: false,
+      isActive2: false,
+      isActive3: false,
+      isActive4: false,
+      isActive5: false,
+      isActive6: false,
+      isActive7: false,
+      isActive8: false,
+      isActive9: false,
+      isActive10: false,
+      isActive11: false,
+      isActive12: false,
+      isActive13: false,
+      isActive14: false,
+
       search_now: 0,
       search_now_text: "",
       nowtime: null,
@@ -392,21 +515,13 @@ export default {
         */
         //publishedAfter:,  publishedAfter パラメータは、指定した日時より後に作成されたリソースのみが API レスポンスに含まれるように指定します。この値は RFC 3339 形式の date-time 値です（1970-01-01T00:00:00Z）。
         //publishedBefore:,  publishedBefore パラメータは、指定した日時より前に作成されたリソースのみが API レスポンスに含まれるように指定します。
-        //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
-        //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
-        //key: "AIzaSyCpQxKrQqzdZLFjU7dVcg5ZCEYu6onC3Hc",
-        key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
-        //key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
+        key: "AIzaSyBZJzZlxrkPz6sllEWC-HshZ3nfeaoZbJk",
       },
       params2: {
         //動画情報所得のためのパラメータ
         part: "statistics",
         id: null,
-        //key: "AIzaSyA2RzZ-SEU9GCN1wbNSAWg_F7VXiBFBgG0",
-        //key: "AIzaSyBiISEotpsIDifCOskeHUpfopKU1Zmq8Lw",
-        //key: "AIzaSyCpQxKrQqzdZLFjU7dVcg5ZCEYu6onC3Hc",
-        key: "AIzaSyBjW_zR6JAPBFkYlHjeDoLEfEm-z26o6_w",
-        //key: "AIzaSyCsCdYl4E7SB19XPBMdStsPJV16sGKTL74",
+        key: "AIzaSyBWOyQ07AYtSbcWd9UmurxsuL9QzX3YOXc",
       },
     }
   },
@@ -416,7 +531,9 @@ export default {
   mounted: function () {
     this.new_video_result = null
     this.params.maxResults = 10
+    this.params.key = "AIzaSyBcv6NiwYPyDN92W4bAw-xyuUgCMohwzs0"
     var self = this
+
     axios
       .get("https://www.googleapis.com/youtube/v3/search", {
         params: this.params,
@@ -424,6 +541,11 @@ export default {
       .then(function (res) {
         self.tmp_new_video_result = res.data.items
         self.new_video_result = self.tmp_new_video_result
+      })
+      .catch(function (res) {
+        console.log(res)
+        self.error_text = " おっと！動画所得に失敗した！ "
+        self.error_text2 = " 作成者に問い合わせて！ "
       })
   },
   methods: {
@@ -438,6 +560,7 @@ export default {
       day.setDate(day.getDate() - 30 - 3 * this.count)
       this.params.publishedBefore = day
       this.params.q = this.keyword
+      this.params.key = "AIzaSyBZJzZlxrkPz6sllEWC-HshZ3nfeaoZbJk"
       var self = this
       axios
         .get("https://www.googleapis.com/youtube/v3/search", {
@@ -479,8 +602,8 @@ export default {
               }
 
               self.count += 1
-              if (self.count < 10) {
-                setTimeout(self.search_video, 300)
+              if (self.count < 15) {
+                setTimeout(self.search_video, 400)
               } else {
                 self.count = 0
                 self.search_now = 0
@@ -488,10 +611,264 @@ export default {
                 self.results = self.tmp_results3
               }
             })
+            .catch(function (res) {
+              console.log(res)
+              self.error_text3 = " おっと！動画所得に失敗した！ "
+              self.error_text4 = "作成者に問い合わせて！"
+              self.search_now = 0
+              self.search_now_text = ""
+              self.params.key = "AIzaSyB49Y_iAgaXEEzZP91Br3TmpU7h4wHx35c"
+            })
+        })
+        .catch(function (res) {
+          console.log(res)
+          self.error_text3 = " おっと！動画所得に失敗した！ "
+          self.error_text4 = " 作成者に問い合わせて！ "
+          self.search_now = 0
+          self.search_now_text = ""
+          self.params.key = "AIzaSyAivTZt-jxryoeUGeJG_0nBlyU4shT_4yE"
         })
     },
     erase_video: function () {
       this.keyword = ""
+    },
+    tag_choice1: function () {
+      this.params.videoCategoryId = 1
+      this.isActive1 = !this.isActive1
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice2: function () {
+      this.params.videoCategoryId = 2
+      this.isActive1 = false
+      this.isActive2 = !this.isActive2
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice3: function () {
+      this.params.videoCategoryId = 10
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = !this.isActive3
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice4: function () {
+      this.params.videoCategoryId = 15
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = !this.isActive4
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice5: function () {
+      this.params.videoCategoryId = 17
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = !this.isActive5
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice6: function () {
+      this.params.videoCategoryId = 19
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = !this.isActive6
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice7: function () {
+      this.params.videoCategoryId = 20
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = !this.isActive7
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice8: function () {
+      this.params.videoCategoryId = 22
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = !this.isActive8
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice9: function () {
+      this.params.videoCategoryId = 23
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = !this.isActive9
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice10: function () {
+      this.params.videoCategoryId = 24
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = !this.isActive10
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice11: function () {
+      this.params.videoCategoryId = 25
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = !this.isActive11
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice12: function () {
+      this.params.videoCategoryId = 26
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = !this.isActive12
+      this.isActive13 = false
+      this.isActive14 = false
+    },
+    tag_choice13: function () {
+      this.params.videoCategoryId = 27
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = !this.isActive13
+      this.isActive14 = false
+    },
+    tag_choice14: function () {
+      this.params.videoCategoryId = 28
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
+      this.isActive7 = false
+      this.isActive8 = false
+      this.isActive9 = false
+      this.isActive10 = false
+      this.isActive11 = false
+      this.isActive12 = false
+      this.isActive13 = false
+      this.isActive14 = !this.isActive14
     },
   },
   computed: {
